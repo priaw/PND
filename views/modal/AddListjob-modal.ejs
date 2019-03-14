@@ -1,4 +1,3 @@
-            <form action=""
             <div>
                 <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#AddModal">
                     <FontAwesomeIcon icon={faPlus}/>
@@ -6,6 +5,7 @@
 
                 <div className="modal fade" id="AddModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
+                        <form action="addjobs" method="post">
                     <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="AddModalLabel">เพิ่มรายการงาน</h5>
@@ -17,7 +17,7 @@
                         <div className="input-group-append">
                             <DatePicker/>
                             <div className="input-group col-md-5">
-                                <select className="custom-select" id="inputGroupSelect01" name="Name">
+                                <select className="custom-select" id="inputGroupSelect01" name="fname">
                                     <option selected>พนักงาน...</option>
                                     <option value="1">ประหยัด</option>
                                     <option value="2">ธงชัย</option>
@@ -31,16 +31,16 @@
                     </div>
                     <br/>
 
-                        <input type="text" className="form-control" placeholder="ต้นทาง" aria-label="" aria-describedby="basic-addon1"/> <br/>
-                        <input type="text" className="form-control" placeholder="ปลายทาง" aria-label="" aria-describedby="basic-addon1"/> <br/>
+                        <input type="text" name="Sorce" className="form-control" placeholder="ต้นทาง" aria-label="" aria-describedby="basic-addon1"/> <br/>
+                        <input type="text" name="Des" className="form-control" placeholder="ปลายทาง" aria-label="" aria-describedby="basic-addon1"/> <br/>
                         <div className="input-group">
                             <div className="input-group-prepend">
-                            <select className="custom-select" id="inputGroupSelect01">
+                            <select className="custom-select" id="inputGroupSelect01" name="type">
                                 <option value="1">เงินสด</option>
                                 <option value="2">เงินโอน</option>
                             </select>
                             </div>
-                                <input type="text" className="form-control" placeholder="ราคา" aria-label="" aria-describedby="basic-addon1"/>
+                                <input type="text" name="Price" className="form-control" placeholder="ราคา" aria-label="" aria-describedby="basic-addon1"/>
                                 <div className="input-group-append"><span className="input-group-text">บาท</span></div>
                         </div>
                         <br/>
@@ -50,9 +50,10 @@
 
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">รีเซ็ท</button>
-                        <button type="button" className="btn btn-primary">บันทึก</button>
+                        <button type="submit" className="btn btn-primary">บันทึก</button>
                     </div>
                     </div>
+                    </form>
                 </div>
                 </div>
 
