@@ -1,5 +1,16 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const mysql = require('mysql2');
+
+//create connection
+const db = mysql.createConnection({
+    host        : 'localhost',
+    user        : 'root',
+    password    : '',
+    database    : 'DB'
+});
+
+
+const app = express();
 
 
 //views ejs
@@ -20,4 +31,6 @@ app.get('/data',function(req, res){
 
 
 //port 
-app.listen(8081);
+app.listen('3000', () => {
+    console.log("Server start");
+});
