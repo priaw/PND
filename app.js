@@ -43,6 +43,9 @@ app.get('/listjob',function(req, res){
     //query data
     res.render('listjob');
 });
+app.post('/addlistjob',(req, res)=>{  
+
+});
 app.get('/payment',function(req, res){
     //query data
     res.render('payment');
@@ -76,6 +79,9 @@ app.get('/commission',function(req, res){
 });
 app.get('/register',function(req, res){
     res.render('register');
+});
+app.get('/tracking',function(req, res){
+    res.send('tracking');
 });
 
 
