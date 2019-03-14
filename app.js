@@ -3,6 +3,8 @@ const body = require('body-parser');  //user method post
 const mysql = require('mysql2');
 const app = express();
 
+
+
 app.use(body());
 //create connection
 /*const db = mysql.createConnection({
