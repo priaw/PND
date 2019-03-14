@@ -7,7 +7,7 @@ import '../style/bootstrap.min.css';
 class Account extends Component {
     render(){
         return (
-            <div className=""> บัญชี </div>
+            <div className=""> บัญชี จ้าาาาา</div>
         );
     }
 }
