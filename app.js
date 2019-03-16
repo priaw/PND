@@ -1,44 +1,24 @@
 const express = require('express');
-const body = require('body-parser');  //user method post
-const mysql = require('mysql2');
 const app = express();
+const body = require('body-parser');                        //user method post
 
-
-
+app.use(express.static(__dirname + '/public'));
 app.use(body());
-//create connection
-/*const db = mysql.createConnection({
-    host: 'localhost',
-    // port: '3306',
-    user: 'root',
-    password: 'root',
-    database: 'pnd-web-serv'
-});
-module.exports = db;
 
-//Connect
-db.connect(() => {
-    if(err){
-        throw err;
-    }
-    console.log('Mysql Connect');
-})*/
+// const db = require('./models/database');                 //ตั้งค่าใน models/database.js
+// db.connect((err) => {
+//     if (err) {
+//         throw err;
+//     }
+//     console.log('Connected to database');
+// });
+
+
 
 //views ejs
 app.set('view engine','ejs');
 
 
-/*app.get('/createdb',(req, res) => {
-    let sql = "CREATE DATABASE nodemysql";
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Databsae create')
-    });
-});*/
-
-
-//path
 app.get('/',function(req, res){
     //var data = {name:"EIEI", age:23, job:"Pro"};
 
@@ -50,7 +30,6 @@ app.get('/listjob',function(req, res){
     res.render('listjob');
 });
 
-//adddata jobs
 app.post('/addjobs',(req, res)=>{  
     let data = {
         name    : req.body.fname,
