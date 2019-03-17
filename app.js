@@ -5,14 +5,16 @@ const body = require('body-parser');                        //user method post
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
-// const db = require('./models/database');                 //ตั้งค่าใน models/database.js
-// db.connect((err) => {
-//     if (err) {
-//         throw err;
-//     }
-//     console.log('Connected to database');
-// });
+const db = require('./models/database');                 //ตั้งค่าใน models/database.js
 
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
+
+db.connect();
 
 
 //views ejs
@@ -21,7 +23,6 @@ app.set('view engine','ejs');
 
 app.get('/',function(req, res){
     //var data = {name:"EIEI", age:23, job:"Pro"};
-
     res.render('home');
 });
 
