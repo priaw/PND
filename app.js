@@ -6,6 +6,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(body());
 
 const db = require('./models/database');                 //ตั้งค่าใน models/database.js
+//const listjobs = require('./models/listjobs');    
+
+//var listjobs = require('./models/listjobs');
 
 db.connect((err) => {
     if (err) {
@@ -27,8 +30,16 @@ app.get('/',function(req, res){
 });
 
 app.get('/listjob',function(req, res){
-    //query data
-    res.render('listjob');
+    let sql = "SELECT * FROM `list-jobs`";
+    let listjobs = db.query(sql, (err, result) => {
+        if(err) throw err;
+
+        console.log(result);  
+        //res.end(JSON.stringify(listjobs));
+    });
+    res.render('listjob',(req, res) => {
+        //res.end("<h1>" + TextRow.id + "<br>" + TextRow.date + "</br>"+ TextRow.source + "</h1>");
+    });
 });
 
 app.post('/addjobs',(req, res)=>{  
@@ -40,8 +51,7 @@ app.post('/addjobs',(req, res)=>{
         price   : req.body.Price
     }
     //console.log(data);
-   /* let sql = "INSERT INTO listjobs
-    VALUES (data.name, data.sorce, data.des, data.type, data.pricr, data.ETC);";
+    /*let sql = "SELECT * FROM listjobs"
     db.query(sql, (err, result) => {
         if(err) throw err;
         console.log(result);
