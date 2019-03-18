@@ -5,6 +5,8 @@ const body = require('body-parser');                        //user method post
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
+app.set('view engine','ejs');
+
 const db = require('./models/database');                 //ตั้งค่าใน models/database.js
 
 db.connect((err) => {
@@ -14,16 +16,14 @@ db.connect((err) => {
     console.log('Connected to database');
 });
 
-db.connect();
-
-
-//views ejs
-app.set('view engine','ejs');
+// db.query('SELECT * FROM `list-jobs`', 
+//     function(err, results) {
+//         console.log(results);
+//   });
 
 
 app.get('/',function(req, res){
-    //var data = {name:"EIEI", age:23, job:"Pro"};
-    res.render('home');
+    res.render('index');
 });
 
 app.get('/listjob',function(req, res){
@@ -39,6 +39,7 @@ app.post('/addjobs',(req, res)=>{
         type    : req.body.type ,
         price   : req.body.Price
     }
+    
     //console.log(data);
    /* let sql = "INSERT INTO listjobs
     VALUES (data.name, data.sorce, data.des, data.type, data.pricr, data.ETC);";
@@ -97,7 +98,7 @@ app.get('/register',function(req, res){
 });
 
 app.get('/tracking',function(req, res){
-    res.send('tracking');
+    res.render('tracking');
 });
 
 //port 
