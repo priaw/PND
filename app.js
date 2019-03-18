@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-const body = require('body-parser');                        //user method post
+const body = require('body-parser'); 
+const path = require('path');                      
 
+//user method post
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
@@ -22,24 +24,25 @@ db.connect();
 
 //views ejs
 app.set('view engine','ejs');
+//route
 
+const home = require('./routes/home');
 
 app.get('/',function(req, res){
-    //var data = {name:"EIEI", age:23, job:"Pro"};
     res.render('home');
 });
 
 app.get('/listjob',function(req, res){
     let sql = "SELECT * FROM `list-jobs`";
-    let listjobs = db.query(sql, (err, result) => {
+     db.query(sql, (err, data) => {
         if(err) throw err;
 
-        console.log(result);  
-        //res.end(JSON.stringify(listjobs));
+        //console.log(data);  
+        res.end("<h1>" + data[0].date + "<br>" + data[3].dealer + "</h1>");
     });
-    res.render('listjob',(req, res) => {
-        //res.end("<h1>" + TextRow.id + "<br>" + TextRow.date + "</br>"+ TextRow.source + "</h1>");
-    });
+    /*  res.render('listjob',(req, res) => {
+        res.end("<h1>" + TextRow.id + "<br>" + TextRow.date + "</br>"+ TextRow.source + "</h1>");
+    });*/
 });
 
 app.post('/addjobs',(req, res)=>{  
