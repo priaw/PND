@@ -2,34 +2,35 @@ const express = require('express');
 const app = express();
 const body = require('body-parser');                        //user method post
 
+const headerRouter = require('./routes/header');
+const jobRouter = require('./routes/jobs');
+const indexRouter = require('./routes/index');
+
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
+app.use(headerRouter);
+app.use(indexRouter);
+app.use(jobRouter);
+
 app.set('view engine','ejs');
 
-const db = require('./models/database');                 //ตั้งค่าใน models/database.js
-
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('Connected to database');
-});
-
-// db.query('SELECT * FROM `list-jobs`', 
-//     function(err, results) {
-//         console.log(results);
-//   });
 
 
-app.get('/',function(req, res){
-    res.render('index');
-});
 
-app.get('/listjob',function(req, res){
-    //query data
-    res.render('listjob');
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.post('/addjobs',(req, res)=>{  
     let data = {
