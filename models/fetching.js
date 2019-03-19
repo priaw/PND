@@ -1,3 +1,4 @@
+const express = require('express');
 const db = require('./database');
 
 module.exports = class fetching {
@@ -20,7 +21,10 @@ module.exports = class fetching {
             if(err){
                 throw err;
             } else {
-                obj = {print: result};             
+                listjob = {print: result};  
+                date = listjob.id;
+                res.render('index', listjob);
+                console.log(result);           
             }
         });
 
