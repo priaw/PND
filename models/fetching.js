@@ -1,4 +1,4 @@
-const db = require('../../models/database');
+const db = require('./database');
 
 module.exports = class fetching {
 
@@ -16,9 +16,6 @@ module.exports = class fetching {
     }
 
     static fetchAllListjob() {
-        return db.query('SELECT * FROM `list-jobs`',
-            function (err, results) {
-                console.log(results);
-            });
+        return db.query('SELECT * FROM `list-jobs`',);
     }
 }

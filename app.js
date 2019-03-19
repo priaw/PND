@@ -2,16 +2,18 @@ const express = require('express');
 const app = express();
 const body = require('body-parser');                        //user method post
 
-const headerRouter = require('./routes/header');
-const jobRouter = require('./routes/jobs');
+const documentsRouter = require('./routes/documents');
+const accountingRouter = require('./routes/accounting');
 const indexRouter = require('./routes/index');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
-app.use(headerRouter);
-app.use(indexRouter);
-app.use(jobRouter);
+
+app.use('/', indexRouter);
+app.use(documentsRouter);
+app.use(accountingRouter);
+
 
 app.set('view engine','ejs');
 

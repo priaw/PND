@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/',function(req, res){
-    res.render('./partial/header');
+router.use('/',function(req, res){
+    res._write('./partial/header');
+    
 });
 
 module.exports = router;

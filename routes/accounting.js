@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/',function(req, res){
+router.get('/accounting',function(req, res){
     //query data
     res.render('./partial/listJobTable');
 });
