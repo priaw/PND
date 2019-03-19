@@ -15,21 +15,26 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@AAAAAAAAAAmdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdVVVVVVBBBBVVBBBBBBBo@mdVVVVV</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>
-                <% include ../modal/edit-listjob-modal.ejs %>
-            </td>
-        </tr>
+
+            <% print.forEach(function (listjob) { %>
+                <tr>  
+                    <th scope="row"><%= listjob.id %></th>
+                    <td><%= listjob.date %></td>
+                    <td><%= listjob.customer %></td>
+                    <td><%= listjob.dealer %></td>
+                    <td><%= listjob.driver %></td>
+                    <td><%= listjob.trucks %></td>
+                    <td><%= listjob.source %></td>
+                    <td><%= listjob.destination %></td>
+                    <td><%= listjob.price %></td>
+                    <td><%= listjob.job_description %></td>
+                    
+                    <td><% include ../modal/edit-listjob-modal.ejs %></td>
+                </tr>                                   
+             <% }) %>
+         
+
+        
     </tbody>
 
 </table>

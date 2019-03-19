@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(body());
 
 
-app.use('/', indexRouter);
+app.use(indexRouter);
 app.use(documentsRouter);
 app.use(accountingRouter);
 
