@@ -15,11 +15,11 @@
         </tr>
     </thead>
     <tbody>
-
             <% print.forEach(function (listjob) { %>
                 <tr>  
                     <th scope="row"><%= listjob.id %></th>
-                    <td><%= listjob.date %></td>
+                    
+                    <td><%= moment(listjob.date).format('MMM-DD-YYYY') %></td>
                     <td><%= listjob.customer %></td>
                     <td><%= listjob.dealer %></td>
                     <td><%= listjob.driver %></td>
@@ -31,10 +31,7 @@
                     
                     <td><% include ../modal/edit-listjob-modal.ejs %></td>
                 </tr>                                   
-             <% }) %>
-         
-
-        
+             <% }) %>   
     </tbody>
 
 </table>
