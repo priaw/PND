@@ -25,4 +25,18 @@ router.get('/', function (req, res) {
 
 });
 
+router.get('/customer', function (req, res) {
+    db.execute('SELECT * FROM `list-jobs`', function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            listjob = {
+                print: result,
+                moment: moment,       
+            };
+            res.render('index', listjob);
+        }
+    });
+});
+
 module.exports = router;

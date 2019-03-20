@@ -14,6 +14,10 @@ app.use(indexRouter);
 app.use(documentsRouter);
 app.use(accountingRouter);
 
+app.use('/tracking'function (req, res) {
+    res.render('tracking')
+});
+
 
 app.set('view engine','ejs');
 
