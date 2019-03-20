@@ -19,7 +19,7 @@
                 <tr>  
                     <th scope="row"><%= listjob.id %></th>
                     
-                    <td><%= moment(listjob.date).format('MMM-DD-YYYY') %></td>
+                    <td><%= moment(listjob.date).add(543, 'year').format('LL') %></td>
                     <td><%= listjob.customer %></td>
                     <td><%= listjob.dealer %></td>
                     <td><%= listjob.driver %></td>
