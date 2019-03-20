@@ -18,8 +18,7 @@
             <% print.forEach(function (listjob) { %>
                 <tr>  
                     <th scope="row"><%= listjob.id %></th>
-                    
-                    <td><%= moment(listjob.date).add(543, 'year').format('LL') %></td>
+                    <td><%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %></td>
                     <td><%= listjob.customer %></td>
                     <td><%= listjob.dealer %></td>
                     <td><%= listjob.driver %></td>
@@ -33,5 +32,4 @@
                 </tr>                                   
              <% }) %>   
     </tbody>
-
 </table>

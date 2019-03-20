@@ -5,10 +5,8 @@ exports.getAllListjob = (req, res, next) => {
         if(err){
             throw err;
         } else {
-            listjob = {print: result};  
-            date = listjob.id;
-            res.render('index', listjob);
-            // console.log(result);           
+            listjob = {print: result};
+            res.render('index', listjob);    
         }
     });
 }
