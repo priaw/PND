@@ -40,7 +40,7 @@ router.get('/customer', function (req, res) {
 });
 
 router.get('/statuslist', function (req, res) {
-    db.execute('SELECT * FROM `list-jobs` WHERE id = 1', function (err, result) {
+    db.execute('SELECT * FROM `list-jobs` WHERE status = 1', function (err, result) {
         if (err) {
             throw err;
         } else {
