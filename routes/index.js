@@ -39,4 +39,19 @@ router.get('/customer', function (req, res) {
     });
 });
 
+router.get('/statuslist', function (req, res) {
+    db.execute('SELECT * FROM `list-jobs` WHERE id = 1', function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            listjob = {
+                print: result,
+                moment: moment,       
+            };
+            res.render('index', listjob);
+        }
+    });
+});
+
+
 module.exports = router;
