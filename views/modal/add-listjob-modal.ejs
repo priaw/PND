@@ -1,24 +1,131 @@
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger fas fa-plus" data-toggle="modal" data-target="#addlistModal">&nbsp; เพิ่มรายการงาน</button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="addlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+<button type="button" class="btn btn-warning fas fa-wrench" data-toggle="modal" data-target="#editlistModal"></button>
+
+<!-- Modal -->
+<div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">เพิ่มรายการงาน</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group row">
+          <div class="col-sm-4" for="date" id="datepicker">
+            <span class="align-middle">วันที่/เดือน/ปี</span>
           </div>
-          <div class="modal-body">
-            ... add
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-            <button type="button" class="btn btn-primary">บันทึกรายการงาน</button>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <input class="form-control " id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+            </div>
           </div>
         </div>
+
+        <div class="form-group row">
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">ชื่อลูกค้า</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <input class="form-control " id="customer" name="customer" placeholder="ชื่อลูกค้า..." type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">ชื่อผู้ติดต่อ</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <input class="form-control " id="customer" name="customer" placeholder="ชื่อผู้ติดต่อ..." type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">ชื่อคนขับรถ</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <input class="form-control " id="customer" name="customer" placeholder="ชื่อคนขับรถ..." type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">ชนิดรถ</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <input class="form-control " id="customer" name="customer" placeholder="ชนิดรถ..." type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">ต้นทาง</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <input class="form-control " id="customer" name="customer" placeholder="สถานที่ต้นทาง..." type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">ปลายทาง</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <input class="form-control " id="customer" name="customer" placeholder="สถานที่ปลายทาง..." type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">รายละเอียดอื่นๆ</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <textarea class="form-control " id="customer" name="customer" placeholder="รายละเอียดงานเพิ่มเติม..."
+                type="text"></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+        <button type="submit" class="btn btn-primary" name="submit">บันทึกรายการงาน</button>
       </div>
     </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    var date_input = $('input[name="date"]'); //our date input has the name "date"
+    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+    date_input.datepicker({
+      format: 'mm/dd/yyyy',
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+    })
+  })
+</script>
