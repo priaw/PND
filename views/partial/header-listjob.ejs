@@ -67,14 +67,20 @@
 
 
                 <div class="input-group  mb-3 my-2 my-lg-0 col-md-1">
-                        <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>เรียงตาม...</option>
-                                <option value="3">วันที่</option>
-                                <option value="1">ชื่อลูกค้า</option>
+                        <select class="custom-select" id="orderby">
+
+                                <option value="">วันที่</option>
+                                <option value="customer">ชื่อลูกค้า</option>
                                 <option value="2">ชนิดรถ</option>
                                 <option value="2">ชื่อผู้ขับรถ</option>
                         </select>
                 </div>
+
+                <script>
+                        $("#orderby").change(function () {
+                                document.location.href = $(this).val();
+                        });
+                </script>
         </nav>
 </body>
 

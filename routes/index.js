@@ -6,7 +6,6 @@ moment.locale('th');
 
 
 router.get('/', function (req, res) {
-
     db.execute('SELECT * FROM `list-jobs`', function (err, result) {
         
         if (err) {
@@ -26,7 +25,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/customer', function (req, res) {
-    db.execute('SELECT * FROM `list-jobs`', function (err, result) {
+    db.execute('SELECT * FROM `list-jobs` WHERE customer = 1', function (err, result) {
         if (err) {
             throw err;
         } else {
