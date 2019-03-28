@@ -2,10 +2,14 @@ const express = require('express');
 const app = express();
 const body = require('body-parser');                        //user method post
 
+
 const documentsRouter = require('./routes/documents');
 const accountingRouter = require('./routes/accounting');
 const indexRouter = require('./routes/index');
+const listjobsrouter = require('./routes/listjobs');
+const customerrouter = require('./routes/customer');
 const trackingRouter = require('./routes/GPStracking');
+
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
@@ -13,6 +17,8 @@ app.use(body());
 
 app.use(indexRouter);
 app.use(trackingRouter);
+app.use(listjobsrouter);
+app.use(customerrouter);
 // app.use(documentsRouter);
 // app.use(accountingRouter);
 
