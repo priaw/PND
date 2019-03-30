@@ -35,13 +35,13 @@
             <th scope="col">ปลายทาง</th>
             <th scope="col">ราคา</th>
             <th scope="col">รายละเอียดอื่นๆ</th>
-            <th scope="col">แก้ไข</th>
+            <th scope="col">แก้ไข </th>
         </tr>
 
     </thead>
-    <tbody>
+    <tbody id="listjobRow" >
         <% print.forEach(function (listjob) { %>
-        <tr>
+        <tr value = <%= listjob.status %> >
             <th scope="row">
                 <%= listjob.id %>
             </th>
@@ -87,13 +87,11 @@
     });
     $("#order-select option[id='<%= page %>']").attr('selected', true);
 
+    $(function () {
+        $("#listjobRow tr[value=1]").addClass('table-success');
 
-    $("#order-select").change(function () {
-        // document.getElementById("<%= page %>").removeAttr('selected');
-        document.getElementById("<%= page %>").attr('selected', true);
     });
-
-
+    
 
     $(function () {
         $('.selectpicker').selectpicker({});
@@ -101,6 +99,7 @@
             console.log('Value is: ' + this.options[this.selectedIndex].value +
                 ' Text is: ' + this.options[this.selectedIndex].textContent);
         });
+        
 
     });
 </script>

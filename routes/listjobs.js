@@ -54,7 +54,7 @@ router.get('/listjobs-date', function (req, res) {
     });
 });
 router.get('/listjobs-truck', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY trucks.id', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY driver.id', function (err, result) {
 
         if (err) {
             throw err;
