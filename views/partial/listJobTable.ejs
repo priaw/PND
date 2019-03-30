@@ -1,9 +1,12 @@
 <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
-            <div class="input-group  mb-3 my-2 my-lg-0 col-md-1">
-                <select class="custom-select" id="order-select">
-                    <option selected id="all" value="listjobs-all">งานทั้งหมด</option>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">เรียงตาม...</label>
+                </div>
+                <select class="custom-select col-1" id="order-select">
+                    <option id="all" value="listjobs-all">งานทั้งหมด</option>
                     <option id="date" value="listjobs-date">วันที่</option>
                     <option id="customer" value="listjobs-customer">ชื่อลูกค้า</option>
                     <option id="truck" value="listjobs-truck">ชนิดรถ</option>
@@ -38,17 +41,39 @@
     <tbody>
         <% print.forEach(function (listjob) { %>
         <tr>
-            <th scope="row"><%= listjob.id %></th>
-            <td><%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %></td>
-            <td><%= listjob.customer %></td>
-            <td><%= listjob.dealer %></td>
-            <td><%= listjob.driver %></td>
-            <td><%= listjob.trucks %></td>
-            <td><%= listjob.source %></td>
-            <td><%= listjob.destination %></td>
-            <td><%= listjob.price %></td>
-            <td><%= listjob.job_description %></td>
-            <td><% include ../modal/edit-listjob-modal.ejs %></td>
+            <th scope="row">
+                <%= listjob.id %>
+            </th>
+            <td>
+                <%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>
+            </td>
+            <td>
+                <%= listjob.customer_name %>
+            </td>
+            <td>
+                <%= listjob.dealer_name %>
+            </td>
+            <td>
+                <%= listjob.driver_name %>
+            </td>
+            <td>
+                <%= listjob.trucks %>
+            </td>
+            <td>
+                <%= listjob.source %>
+            </td>
+            <td>
+                <%= listjob.destination %>
+            </td>
+            <td>
+                <%= listjob.price %>
+            </td>
+            <td>
+                <%= listjob.job_description %>
+            </td>
+            <td>
+                <% include ../modal/edit-listjob-modal.ejs %>
+            </td>
         </tr>
         <% }) %>
     </tbody>
@@ -57,13 +82,13 @@
 <script>
     $("#order-select").change(function () {
         document.location.href = $(this).val();
+        $('#order-select option').removeAttr('selected');
     });
-
-    $('#order-select option').removeAttr('selected');
     $("#order-select option[id='<%= page %>']").attr('selected', true);
 
+
     $("#order-select").change(function () {
-        document.getElementById("<%= page %>").removeAttr('selected');
+        // document.getElementById("<%= page %>").removeAttr('selected');
         document.getElementById("<%= page %>").attr('selected', true);
     });
 
