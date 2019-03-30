@@ -3,7 +3,7 @@
         <div class="bg-dark p-4">
             <div class="input-group  mb-3 my-2 my-lg-0 col-md-1">
                 <select class="custom-select" id="order-select">
-                    <option id="all" value="listjobs-all">งานทั้งหมด</option>
+                    <option selected id="all" value="listjobs-all">งานทั้งหมด</option>
                     <option id="date" value="listjobs-date">วันที่</option>
                     <option id="customer" value="listjobs-customer">ชื่อลูกค้า</option>
                     <option id="truck" value="listjobs-truck">ชนิดรถ</option>
@@ -55,11 +55,19 @@
 </table>
 
 <script>
-
     $("#order-select").change(function () {
         document.location.href = $(this).val();
-        document.getElementById("<%= page %>").selected = "true";
     });
+
+    $('#order-select option').removeAttr('selected');
+    $("#order-select option[id='<%= page %>']").attr('selected', true);
+
+    $("#order-select").change(function () {
+        document.getElementById("<%= page %>").removeAttr('selected');
+        document.getElementById("<%= page %>").attr('selected', true);
+    });
+
+
 
     $(function () {
         $('.selectpicker').selectpicker({});
