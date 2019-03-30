@@ -1,14 +1,24 @@
-<nav>
-    <div class="input-group  mb-3 my-2 my-lg-0 col-md-1">
-        <select class="custom-select" id="order-select">
-            <option id="all" value="listjobs-all">งานทั้งหมด</option>
-            <option id="date" value="listjobs-date">วันที่</option>
-            <option id="customer" value="listjobs-customer">ชื่อลูกค้า</option>
-            <option id="truck" value="listjobs-truck">ชนิดรถ</option>
-            <option id="driver" value="listjobs-driver">ชื่อผู้ขับรถ</option>
-        </select>
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <div class="input-group  mb-3 my-2 my-lg-0 col-md-1">
+                <select class="custom-select" id="order-select">
+                    <option id="all" value="listjobs-all">งานทั้งหมด</option>
+                    <option id="date" value="listjobs-date">วันที่</option>
+                    <option id="customer" value="listjobs-customer">ชื่อลูกค้า</option>
+                    <option id="truck" value="listjobs-truck">ชนิดรถ</option>
+                    <option id="driver" value="listjobs-driver">ชื่อผู้ขับรถ</option>
+                </select>
+            </div>
+        </div>
     </div>
-</nav>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -45,7 +55,7 @@
 </table>
 
 <script>
-    
+
     $("#order-select").change(function () {
         document.location.href = $(this).val();
         document.getElementById("<%= page %>").selected = "true";
