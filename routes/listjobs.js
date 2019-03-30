@@ -4,7 +4,7 @@ const moment = require('moment');
 const db = require('../models/database');
 moment.locale('th');
 
-router.get('/listjobs', function (req, res) {
+router.get('/listjobs-all', function (req, res) {
     db.execute('SELECT * FROM `list-jobs`', function (err, result) {
 
         if (err) {

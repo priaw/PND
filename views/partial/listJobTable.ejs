@@ -1,11 +1,11 @@
 <nav>
     <div class="input-group  mb-3 my-2 my-lg-0 col-md-1">
         <select class="custom-select" id="order-select">
-            <option id="all">เรียงตาม...</option>
-            <option id="date">วันที่</option>
-            <option id="customer">ชื่อลูกค้า</option>
-            <option id="truck">ชนิดรถ</option>
-            <option id="driver">ชื่อผู้ขับรถ</option>
+            <option id="all" value="listjobs-all">งานทั้งหมด</option>
+            <option id="date" value="listjobs-date">วันที่</option>
+            <option id="customer" value="listjobs-customer">ชื่อลูกค้า</option>
+            <option id="truck" value="listjobs-truck">ชนิดรถ</option>
+            <option id="driver" value="listjobs-driver">ชื่อผู้ขับรถ</option>
         </select>
     </div>
 </nav>
@@ -45,11 +45,14 @@
 </table>
 
 <script>
-    document.getElementById("<%= page %>").selected = "true";
+    
+    $("#order-select").change(function () {
+        document.location.href = $(this).val();
+        document.getElementById("<%= page %>").selected = "true";
+    });
+
     $(function () {
         $('.selectpicker').selectpicker({});
-
-
         $('.selectpicker').on('changed.bs.select', function (e) {
             console.log('Value is: ' + this.options[this.selectedIndex].value +
                 ' Text is: ' + this.options[this.selectedIndex].textContent);
