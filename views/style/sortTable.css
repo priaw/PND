@@ -1,0 +1,23 @@
+
+root
+{
+    display: block;
+}
+
+th.sortable
+{
+    color: #666;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+    th.sortable:hover
+    {
+        color: black;
+    }
+
+th.sorted-asc, th.sorted-desc
+{
+    color: black;
+    background-color: cadetblue;
+}
