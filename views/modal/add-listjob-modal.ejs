@@ -12,6 +12,7 @@
 <button type="button" class="btn btn-dark fas fa-plus" data-toggle="modal" data-target="#addlistModal">&nbsp; เพิ่มรายการงาน</button>
 
 <!-- Modal -->
+<form action="/insert" method="POST">
 <div class="modal fade" id="addlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -30,7 +31,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+              <input class="form-control " id="dp" name="date" placeholder="yyyy-mm-dd" type="text" />
             </div>
           </div>
         </div>
@@ -51,7 +52,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชื่อผู้ติดต่อ..." type="text" />
+              <input class="form-control " id="customer" name="dealer" placeholder="ชื่อผู้ติดต่อ..." type="text" />
             </div>
           </div>
         </div>
@@ -61,7 +62,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชื่อคนขับรถ..." type="text" />
+              <input class="form-control " id="customer" name="driver" placeholder="ชื่อคนขับรถ..." type="text" />
             </div>
           </div>
         </div>
@@ -71,7 +72,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชนิดรถ..." type="text" />
+              <input class="form-control " id="customer" name="trucks" placeholder="ชนิดรถ..." type="text" />
             </div>
           </div>
         </div>
@@ -81,7 +82,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="สถานที่ต้นทาง..." type="text" />
+              <input class="form-control " id="customer" name="source" placeholder="สถานที่ต้นทาง..." type="text" />
             </div>
           </div>
         </div>
@@ -91,7 +92,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="สถานที่ปลายทาง..." type="text" />
+              <input class="form-control " id="customer" name="destination" placeholder="สถานที่ปลายทาง..." type="text" />
             </div>
           </div>
         </div>
@@ -101,7 +102,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <textarea class="form-control " id="customer" name="customer" placeholder="รายละเอียดงานเพิ่มเติม..."
+              <textarea class="form-control " id="customer" name="job_des" placeholder="รายละเอียดงานเพิ่มเติม..."
                 type="text"></textarea>
             </div>
           </div>
@@ -116,16 +117,19 @@
     </div>
   </div>
 </div>
-
+</form>
 <script>
-  $(document).ready(function () {
-    var date_input = $('input[name="date"]'); //our date input has the name "date"
-    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-    date_input.datepicker({
-      format: 'mm/dd/yyyy',
-      container: container,
-      todayHighlight: true,
-      autoclose: true,
-    })
-  })
+  $('#dp').datepicker({
+  format: 'yyyy-mm-dd'
+});
+  // $(document).ready(function () {
+  //   var date_input = $('input[name="date"]'); //our date input has the name "date"
+  //   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+  //   date_input.datepicker({
+  //     format: 'mm/dd/yyyy',
+  //     container: container,
+  //     todayHighlight: true,
+  //     autoclose: true,
+  //   })
+  // })
 </script>
