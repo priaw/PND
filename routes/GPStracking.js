@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();0
+const router = express.Router();
 
 router.get('/tracking', function (req, res) {
-    res.render('tracking', listjob);
+    res.render('tracking');
 });
 
 module.exports = router;

@@ -120,25 +120,22 @@
 
       <div class="modal-footer">
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteJobModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="deleteJobModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        
-        <div class="modal-body">
-            <a href="/delete/<%= listjob.list_id%>" role="button" class="btn btn-danger padding-left">ยืนยัน(ลบงาน)</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteJobModal">
+          ลบรายการงาน
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteJobModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <a href="/delete/<%= listjob.list_id%>" role="button" class="btn btn-danger padding-left">ยืนยัน</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
+              </div>
+            </div>
+          </div>
         </div>
-        
-      </div>
-    </div>
-  </div>
-
-
-        
         <div></div>
         <button type="submit" class="btn btn-primary float-right" name="submit">บันทึกการแก้ไข</button>
       </div>
