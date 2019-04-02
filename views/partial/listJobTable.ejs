@@ -1,10 +1,7 @@
 <div class="pos-f-t">
-    <div class="collapseXXX" id="navbarToggleExternalContent">
+    <div class="collapse" id="navbarToggleExternalContent">
         <!-- real class is "collapse" -->
         <div class="bg-dark p-4">
-
-            <p id="demo"> eiei</p>
-            <button onclick="myFunction()">Try it</button>
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -21,10 +18,16 @@
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="input-group col-10">
+            <div class="input-group-prepend">
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars btn-dark"></span>
+                </button>
+            </div>
+            <input class="form-control col-3" id="SerchInput" placeholder="ค้นหา..." type="text" />
+        </div>
+        <% include ../modal/add-listjob-modal.ejs %>
     </nav>
 </div>
 <table id="dtOrderExample" class="table table-sm">
@@ -68,7 +71,7 @@
             <td>
                 <%= listjob.source %>
             </td>
-            <td>
+            <td id="">
                 <%= listjob.destination %>
             </td>
             <td>
@@ -114,5 +117,4 @@
         var res = "SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY " + pageVal + ".id";
         document.getElementById("demo").innerHTML = res;
     }
-
 </script>
