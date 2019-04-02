@@ -20,14 +20,15 @@
         </button>
       </div>
       <div class="modal-body">
- 
+
         <div class="form-group row">
           <div class="col-sm-4" for="date" id="datepicker">
             <span class="align-middle">วันที่/เดือน/ปี</span>
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="date" name="date" placeholder="<%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>" type="text" />
+              <input class="form-control " id="date" name="date" placeholder="<%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>"
+                type="text" />
             </div>
           </div>
         </div>
@@ -38,7 +39,8 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.customer_name %>" type="text" />
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.customer_name %>"
+                type="text" />
             </div>
           </div>
         </div>
@@ -98,27 +100,45 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.price %>"
-                type="text"></input>
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.price %>" type="text"></input>
             </div>
           </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-4" for="date">
-              <span class="align-middle">รายละเอียดอื่นๆ</span>
-            </div>
-            <div class="col-sm-7">
-              <div class="input-group align-middle">
-                <textarea class="form-control " id="customer" name="customer" placeholder="<%= listjob.job_description %>"
-                  type="text"></textarea>
-              </div>
+          <div class="col-sm-4" for="date">
+            <span class="align-middle">รายละเอียดอื่นๆ</span>
+          </div>
+          <div class="col-sm-7">
+            <div class="input-group align-middle">
+              <textarea class="form-control " id="customer" name="customer" placeholder="<%= listjob.job_description %>"
+                type="text"></textarea>
             </div>
           </div>
+        </div>
 
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger padding-left">ลบรายการงาน</button>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteJobModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="deleteJobModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <a href="/delete/<%= listjob.list_id%>" role="button" class="btn btn-danger padding-left">ยืนยัน(ลบงาน)</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+        
         <div></div>
         <button type="submit" class="btn btn-primary float-right" name="submit">บันทึกการแก้ไข</button>
       </div>

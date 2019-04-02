@@ -3,10 +3,9 @@ const router = express.Router();
 const moment = require('moment');
 const db = require('../models/database');
 moment.locale('th');
-const something = `listjobs`
 
 router.get('/listjobs-result', function (req, res) {
-    db.execute('SSELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id', function (err, result) {
 
         if (err) {
             throw err;
@@ -55,7 +54,7 @@ router.get('/listjobs-customer', function (req, res) {
     });
 });
 router.get('/listjobs-date', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.date ASC', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.date DESC', function (err, result) {
 
         if (err) {
             throw err;
@@ -107,13 +106,11 @@ router.get('/listjobs-driver', function (req, res) {
 });
 
 ///////////////////
-router.get('/:id', function (req, res) {
-    var id = req.params.id;
-    req.getConnection(function (err, connection) {
-        connection.query("DELETE FROM pictures WHERE id = ? ", [id], function (err, results) {
-            res.redirect('/');
-            console.log('Some data has been deleted')
-        });
+router.get('/delete/:list_id', function (req, res) {
+    var id = req.params.list_id;
+    db.query('DELETE FROM `listjobs` WHERE list_id = ? ', [id], function (err, results) {
+        res.redirect('/listjobs-date');
+        console.log('Some data has been deleted, id is: '+ id);
     });
 });
 //////////////////
