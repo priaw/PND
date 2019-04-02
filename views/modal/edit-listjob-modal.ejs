@@ -21,12 +21,12 @@
       <div class="modal-body">
 
         <div class="form-group row">
-          <div class="col-sm-4" for="date" id="datepicker">
+          <div class="col-sm-4" for="date">
             <span class="align-middle">วันที่/เดือน/ปี</span>
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="date" name="date" placeholder="<%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>"
+              <input class="form-control" id="dp1" name="date" placeholder="<%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>"
                 type="text" />
             </div>
           </div>
@@ -127,14 +127,21 @@
 </form>
 
 <script>
-  $(document).ready(function () {
-    var date_input = $('input[name="date"]'); //our date input has the name "date"
-    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-    date_input.datepicker({
-      format: 'mm-dd-yyyy',
-      container: container,
-      todayHighlight: true,
-      autoclose: true,
-    })
-  })
+
+// $('.datepicker').datepicker({
+//     format: 'yyyy-mm-dd',
+// });
+$('#dp1').datepicker({
+  format: 'yyyy-mm-dd'
+});
+  // $(document).ready(function () {
+  //   var date_input = $('.datepicker'); //our date input has the name "date"
+  //   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+  //   date_input.datepicker({
+  //     format: "yyyy-mm-dd",
+  //     container: container,
+  //     todayHighlight: true,
+  //     autoclose: true,
+  //   })
+  // })
 </script>

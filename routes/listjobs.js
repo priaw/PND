@@ -53,7 +53,7 @@ router.post('/update/:list_id', function (req, res) {
     let dealer = req.body.dealer
     let driver = req.body.driver
     let truck = req.body.trucks
-    let sorce = req.body.sorce
+    let sorce = req.body.source
     let destination = req.body.destination
     let id = req.params.list_id
     db.query('UPDATE `listjobs` SET price = ?, date = ?, source = ?, destination = ? WHERE list_id = ? ' ,[price,date,sorce,destination,id], function (err, results){
