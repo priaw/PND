@@ -1,8 +1,5 @@
-<link rel="stylesheet" href="../style/sortTable.css">
 <div class="pos-f-t">
-
     <div class="collapseXXX" id="navbarToggleExternalContent">
-
         <!-- real class is "collapse" -->
         <div class="bg-dark p-4">
 
@@ -30,19 +27,19 @@
         </button>
     </nav>
 </div>
-<table id="selectedColumn" class="table table-striped table-sm">
+<table id="dtOrderExample" class="table table-sm">
     <thead>
         <tr>
-            <th scope="col">ลำดับ</th>
-            <th scope="col">วันที่</th>
-            <th scope="col">ชื่อลูกค้า</th>
-            <th scope="col">ชื่อผู้ติดต่อ</th>
-            <th scope="col">ชื่อผู้ขับรถ</th>
-            <th scope="col">ชนิดรถ</th>
+            <th scope="col">ลำดับ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">วันที่ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">ชื่อลูกค้า <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">ชื่อผู้ติดต่อ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">ชื่อผู้ขับรถ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">ชนิดรถ <i class="fa fa-fw fa-sort"></i></th>
             <th scope="col">ต้นทาง</th>
             <th scope="col">ปลายทาง</th>
-            <th scope="col">ราคา</th>
-            <th scope="col">รายละเอียดอื่นๆ</th>
+            <th scope="col">ราคา <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">รายละเอียดอื่นๆ </th>
             <th scope="col">แก้ไข </th>
         </tr>
 
@@ -114,11 +111,8 @@
     function myFunction() {
         var str1 = "Hello ";
         var pageVal = document.getElementById("order-select").getElementsByTagName("option selected").getAttribute("id");
-        var res = "SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY " + pageVal +".id";
+        var res = "SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY " + pageVal + ".id";
         document.getElementById("demo").innerHTML = res;
     }
-
-
-
 
 </script>

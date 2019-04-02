@@ -105,4 +105,17 @@ router.get('/listjobs-driver', function (req, res) {
         }
     });
 });
+
+///////////////////
+router.get('/:id', function (req, res) {
+    var id = req.params.id;
+    req.getConnection(function (err, connection) {
+        connection.query("DELETE FROM pictures WHERE id = ? ", [id], function (err, results) {
+            res.redirect('/');
+            console.log('Some data has been deleted')
+        });
+    });
+});
+//////////////////
+
 module.exports = router;

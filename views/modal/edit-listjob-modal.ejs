@@ -2,18 +2,15 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Include Date Range Picker -->
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-warning fas fa-wrench" data-toggle="modal" data-target="#editlistModal"></button>
 
 <!-- Modal -->
-<div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -23,14 +20,14 @@
         </button>
       </div>
       <div class="modal-body">
-
+ 
         <div class="form-group row">
           <div class="col-sm-4" for="date" id="datepicker">
             <span class="align-middle">วันที่/เดือน/ปี</span>
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+              <input class="form-control " id="date" name="date" placeholder="<%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>" type="text" />
             </div>
           </div>
         </div>
@@ -41,7 +38,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชื่อลูกค้า..." type="text" />
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.customer_name %>" type="text" />
             </div>
           </div>
         </div>
@@ -51,7 +48,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชื่อผู้ติดต่อ..." type="text" />
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.dealer_name %>" type="text" />
             </div>
           </div>
         </div>
@@ -61,7 +58,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชื่อคนขับรถ..." type="text" />
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.driver_name %>" type="text" />
             </div>
           </div>
         </div>
@@ -71,7 +68,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชนิดรถ..." type="text" />
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.trucks %>" type="text" />
             </div>
           </div>
         </div>
@@ -81,7 +78,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="สถานที่ต้นทาง..." type="text" />
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.source %>" type="text" />
             </div>
           </div>
         </div>
@@ -91,27 +88,39 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="สถานที่ปลายทาง..." type="text" />
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.destination %>" type="text" />
             </div>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-sm-4" for="date">
-            <span class="align-middle">รายละเอียดอื่นๆ</span>
+            <span class="align-middle">ราคางาน</span>
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <textarea class="form-control " id="customer" name="customer" placeholder="รายละเอียดงานเพิ่มเติม..."
-                type="text"></textarea>
+              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.price %>"
+                type="text"></input>
             </div>
           </div>
         </div>
+        <div class="form-group row">
+            <div class="col-sm-4" for="date">
+              <span class="align-middle">รายละเอียดอื่นๆ</span>
+            </div>
+            <div class="col-sm-7">
+              <div class="input-group align-middle">
+                <textarea class="form-control " id="customer" name="customer" placeholder="<%= listjob.job_description %>"
+                  type="text"></textarea>
+              </div>
+            </div>
+          </div>
 
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-        <button type="submit" class="btn btn-primary" name="submit">บันทึกการแก้ไข</button>
+        <button type="button" class="btn btn-danger padding-left">ลบรายการงาน</button>
+        <div></div>
+        <button type="submit" class="btn btn-primary float-right" name="submit">บันทึกการแก้ไข</button>
       </div>
     </div>
   </div>
