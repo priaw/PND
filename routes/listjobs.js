@@ -6,7 +6,7 @@ moment.locale('th');
 const something = `listjobs`
 
 router.get('/listjobs-result', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id', function (err, result) {
+    db.execute('SSELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id', function (err, result) {
 
         if (err) {
             throw err;
@@ -22,7 +22,7 @@ router.get('/listjobs-result', function (req, res) {
 });
 
 router.get('/listjobs-all', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.list_id', function (err, result) {
 
         if (err) {
             throw err;
@@ -38,7 +38,7 @@ router.get('/listjobs-all', function (req, res) {
 });
 
 router.get('/listjobs-customer', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY customer.id', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY customer.id', function (err, result) {
 
         if (err) {
             throw err;
@@ -55,7 +55,7 @@ router.get('/listjobs-customer', function (req, res) {
     });
 });
 router.get('/listjobs-date', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY listjobs.date ASC', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.date ASC', function (err, result) {
 
         if (err) {
             throw err;
@@ -71,7 +71,7 @@ router.get('/listjobs-date', function (req, res) {
     });
 });
 router.get('/listjobs-truck', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY driver.id', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY driver.id', function (err, result) {
 
         if (err) {
             throw err;
@@ -89,7 +89,7 @@ router.get('/listjobs-truck', function (req, res) {
     });
 });
 router.get('/listjobs-driver', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY driver.id', function (err, result) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY driver.driver_id', function (err, result) {
 
         if (err) {
             throw err;
