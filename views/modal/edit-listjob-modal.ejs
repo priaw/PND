@@ -49,7 +49,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.dealer_name %>" type="text" />
+              <input class="form-control " id="customer" name="dealer" placeholder="<%= listjob.dealer_name %>" type="text" />
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.driver_name %>" type="text" />
+              <input class="form-control " id="customer" name="driver" placeholder="<%= listjob.driver_name %>" type="text" />
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.trucks %>" type="text" />
+              <input class="form-control " id="customer" name="trucks" placeholder="<%= listjob.trucks %>" type="text" />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.source %>" type="text" />
+              <input class="form-control " id="customer" name="source" placeholder="<%= listjob.source %>" type="text" />
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.destination %>" type="text" />
+              <input class="form-control " id="customer" name="destination" placeholder="<%= listjob.destination %>" type="text" />
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="<%= listjob.price %>" type="text"></input>
+              <input class="form-control " id="customer" name="price" placeholder="<%= listjob.price %>" type="text"></input>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@
           </div>
           <div class="col-sm-7">
             <div class="input-group align-middle">
-              <textarea class="form-control " id="customer" name="customer" placeholder="<%= listjob.job_description %>"
+              <textarea class="form-control " id="customer" name="job_description" placeholder="<%= listjob.job_description %>"
                 type="text"></textarea>
             </div>
           </div>
@@ -131,7 +131,7 @@
     var date_input = $('input[name="date"]'); //our date input has the name "date"
     var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
     date_input.datepicker({
-      format: 'mm/dd/yyyy',
+      format: 'mm-dd-yyyy',
       container: container,
       todayHighlight: true,
       autoclose: true,
