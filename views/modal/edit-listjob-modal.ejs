@@ -10,14 +10,12 @@
 <button type="button" class="btn btn-warning fas fa-wrench" data-toggle="modal" data-target="#editlistModal"></button>
 
 <!-- Modal -->
-<div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="editlistModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">แก้ไขรายการงาน</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="editlistModalLabel">แก้ไขรายการงาน</h5>
+        <a href="/delete/<%= listjob.list_id%>" role="button" class="btn btn-danger padding-left fa fa-trash"></a>
       </div>
       <div class="modal-body">
 
@@ -119,24 +117,7 @@
       </div>
 
       <div class="modal-footer">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteJobModal">
-          ลบรายการงาน
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="deleteJobModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <a href="/delete/<%= listjob.list_id%>" role="button" class="btn btn-danger padding-left">ยืนยัน</a>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">ยกเลิก</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div></div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
         <button type="submit" class="btn btn-primary float-right" name="submit">บันทึกการแก้ไข</button>
       </div>
     </div>
