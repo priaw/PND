@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const moment = require('moment');
 const db = require('../models/database');
+//let body = require('body-parser'); 
 moment.locale('th');
 
 router.get('/listjobs-result', function (req, res) {
@@ -115,4 +116,23 @@ router.get('/delete/:list_id', function (req, res) {
 });
 //////////////////
 
+router.post('/update/:list_id', function (req, res) {
+    var id = req.params.list_id;
+    data = {
+        date : req.body.date,
+        //customer : req.body.customer,
+        //dealer : req.body.dealer,
+       // driver : req.body.drivers,
+        //truck : req.body.trucks,
+        sorce : req.body.Sorce,
+        destination : req.body.Destination,
+        price : req.body.Price,
+        job_des : req.body.Job_des
+    }
+    db.query('UPDATE FORM `listjobs` SET date = ?, source = ?, destination = ?, price = ?, job_description = ? WHERE list_id = ? ', [id], function (err, results) {
+        //res.redirect('/listjobs-date');
+        console.log('Some data has been update, id is: '+ id + data.sorce);
+        // res.end('<h1>' +  id  + '<br>' + data.date +  '</h1>')
+    });
+});
 module.exports = router;
