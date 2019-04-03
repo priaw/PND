@@ -48,7 +48,7 @@ router.post('/update/:list_id', function (req, res) {
     
     //db.query('UPDATE FORM `listjobs` SET date = ?, source = ?, destination = ?, price = ?, job_description = ? WHERE list_id = ? '[data.date], [data.sorce], [id], function (err, results) {
         res.redirect('/listjobs-date');
-       //console.log('Some data has been update, data price: '+price+ ' id: ' + id);
+        console.log('Some data has been update, data price: '+date+ ' id: ' + id);
         // res.end('<h1>' +  id  + '<br>' + data.date +  '</h1>'vvv)
     });
 });
