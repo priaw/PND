@@ -9,3 +9,17 @@ const connection = mysql.createConnection({
 });
 
 module.exports = connection;
+
+
+//*** for NAS SERVER ***//
+// const mysql = require('mysql2');
+
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     port: '3307',
+//     user: 'root',
+//     password: 'root',
+//     database: 'pnd-web-serv'
+// });
+
+// module.exports = connection;
