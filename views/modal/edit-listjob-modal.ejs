@@ -9,10 +9,11 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-warning fas fa-wrench" data-toggle="modal" data-target="#editlistModal"></button>
+<button type="button" class="btn btn-warning fas fa-wrench" id="editButton" data-toggle="modal"
+  data-target="#editlistModal" value="<%= listjob.list_id %>"></button>
 
 <!-- Modal -->
-<form action="/update/<%= listjob.list_id %>" method="POST">
+<form action="/update/" method="POST">
   <div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="editlistModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -159,7 +160,11 @@
   });
 
   $("#clearForm").on("click", function () {
-      $(this).val("")
+    $(this).val("")
+  });
+
+  $("editButton").click(function () {
+    var clicked_id = $(this).val();
   });
 
 </script>
