@@ -14,10 +14,9 @@ router.get('/listjobs-date', function (req, res) {
                 print: result,
                 moment: moment,
                 page: 'date',
-                customerprint: result.customer
             };
             res.render('listjobs', listjob);
-            console.log('id is: ' + result[0].id);
+            console.log(result[0], result[1] );
         }
     });
     

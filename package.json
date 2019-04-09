@@ -12,7 +12,8 @@
     "express-ejs-layouts": "^2.5.0",
     "moment": "^2.24.0",
     "mysql2": "^1.6.5",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "sequelize": "^5.2.15"
   },
   "devDependencies": {},
   "scripts": {
