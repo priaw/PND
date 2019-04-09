@@ -12,14 +12,14 @@
 <button type="button" class="btn btn-warning fas fa-wrench" data-toggle="modal" data-target="#editlistModal"></button>
 
 <!-- Modal -->
-<form action="/update/<%= listjob.list_id%>" method="POST"></form>
+<form action="/update/<%= listjob.list_id %>" method="POST">
   <div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="editlistModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="editlistModalLabel">แก้ไขรายการงาน</h5>
-          <a href="/delete/<%= listjob.list_id%>" role="button" class="btn btn-danger padding-left fa fa-trash"></a>
+          <a href="/delete/<%= listjob.list_id %>" role="button" class="btn btn-danger padding-left fa fa-trash"></a>
         </div>
         <div class="modal-body">
 
@@ -29,8 +29,8 @@
             </div>
             <div class="col-sm-7">
               <div class="input-group align-middle">
-                <input class="form-control" id="dp1" name="date"
-                  placeholder="<%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>" type="text" />
+                <input class="form-control" id="dp1" name="date" autocomplete="off"
+                  value="<%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>" type="text" />
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
               <div class="input-group align-middle">
                 <select class="custom-select" id="inputGroupSelect01">
                   <% print.forEach(function (listjob) { %>
-                  <option selected ><%= listjob.customer_name %></option>
+                  <option selected><%= listjob.customer_name %></option>
                   <% }) %>
                 </select>
 
@@ -101,7 +101,7 @@
             <div class="col-sm-7">
               <div class="input-group align-middle">
                 <input class="form-control " id="customer" name="source" placeholder="<%= listjob.source %>"
-                  type="text" />
+                  autocomplete="off" type="text" />
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@
             <div class="col-sm-7">
               <div class="input-group align-middle">
                 <input class="form-control " id="customer" name="destination" placeholder="<%= listjob.destination %>"
-                  type="text" />
+                  autocomplete="off" type="text" />
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@
             <div class="col-sm-7">
               <div class="input-group align-middle">
                 <input class="form-control " id="customer" name="price" placeholder="<%= listjob.price %>"
-                  type="text"></input>
+                  autocomplete="off" type="text"></input>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@
             </div>
             <div class="col-sm-7">
               <div class="input-group align-middle">
-                <textarea class="form-control " id="customer" name="job_description"
+                <textarea class="form-control " id="customer" name="job_description" autocomplete="off"
                   placeholder="<%= listjob.job_description %> <%= listjob.list_id%>" type="text"></textarea>
               </div>
             </div>
@@ -152,25 +152,14 @@
 
 <script>
 
-  // $('.datepicker').datepicker({
-  //     format: 'yyyy-mm-dd',
-  // });
   $('#dp1').datepicker({
     format: 'yyyy-mm-dd',
     autoclose: true,
     todayHighlight: true
   });
-  // $(document).ready(function () {
-  //   var date_input = $('.datepicker'); //our date input has the name "date"
-  //   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-  //   date_input.datepicker({
-  //     format: "yyyy-mm-dd",
-  //     container: container,
-  //     todayHighlight: true,
-  //     autoclose: true,
-  //   })
-  // })
 
-
+  $("#clearForm").on("click", function () {
+      $(this).val("")
+  });
 
 </script>
