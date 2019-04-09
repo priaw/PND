@@ -7,6 +7,7 @@ moment.locale('th');
 
 router.get('/listjobs-date', function (req, res) {
     db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.date DESC', function (err, result, field) {
+        
         if (err) {
             throw err;
         } else {
@@ -14,9 +15,16 @@ router.get('/listjobs-date', function (req, res) {
                 print: result,
                 moment: moment,
                 page: 'date',
+                customerList: db.query('SELECT cust_id FROM `customer` ORDER BY cust_id', function (err, result, field){
+                    if (err) {
+                        throw err;
+                    } else {
+                        console.log(result);
+                    }
+                })
             };
             res.render('listjobs', listjob);
-            console.log(result[0], result[1] );
+            
         }
     });
     
