@@ -15,14 +15,8 @@ router.get('/listjobs-date', function (req, res) {
                 print: result,
                 moment: moment,
                 page: 'date',
-                customerList: db.query('SELECT cust_id FROM `customer` ORDER BY cust_id', function (err, result, field){
-                    if (err) {
-                        throw err;
-                    } else {
-                        console.log(result);
-                    }
-                })
-            };
+                
+            }
             res.render('listjobs', listjob);
             
         }
