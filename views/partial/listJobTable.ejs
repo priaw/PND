@@ -33,7 +33,7 @@
 <table id="dtOrder" class="table table-sm">
     <thead>
         <tr>
-            <th scope="col">ลำดับ <a class="fa fa-fw fa-sort"></a></th>
+            <th scope="col" data-formatter="runningFormatter">ลำดับ <a class="fa fa-fw fa-sort"></a></th>
             <th scope="col">วันที่ <i class="fa fa-fw fa-sort"></i></th>
             <th scope="col">ชื่อลูกค้า <i class="fa fa-fw fa-sort"></i></th>
             <th scope="col">ชื่อผู้ติดต่อ <i class="fa fa-fw fa-sort"></i></th>
@@ -51,7 +51,7 @@
         <% print.forEach(function (listjob) { %>
         <tr value=<%=listjob.status %> >
             <th scope="row">
-                <%= listjob.list_id %>
+
             </th>
             <td>
                 <%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>
@@ -81,8 +81,7 @@
                 <%= listjob.job_description %>
             </td>
             <td>
-                <button type="button" class="btn btn-warning fas fa-wrench" id="editButton" data-toggle="modal"
-                    data-target="#editlistModal"></button>
+                <button type="button" class="btn btn-warning fas fa-wrench" data-toggle="modal" data-target="#editlistModal<%= listjob.list_id + 50 % 9 %>"></button>
                 <% include ../modal/edit-listjob-modal.ejs %>
             </td>
         </tr>
@@ -99,7 +98,6 @@
 
     $(function () {
         $("#listjobRow tr[value=1]").addClass('table-success');
-
     });
 
 
@@ -112,11 +110,15 @@
 
     });
 
-
     function myFunction() {
         var str1 = "Hello ";
         var pageVal = document.getElementById("order-select").getElementsByTagName("option selected").getAttribute("id");
         var res = "SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY " + pageVal + ".id";
         document.getElementById("demo").innerHTML = res;
     }
+
+    $("#listjobRow th").add(function (value, row, index){
+        return index+1;
+    });
+
 </script>

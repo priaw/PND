@@ -10,13 +10,13 @@
 
 <!-- Modal -->
 <form action="/update/" method="POST">
-  <div class="modal fade" id="editlistModal" tabindex="-1" role="dialog" aria-labelledby="editlistModalLabel"
+  <div class="modal fade" id="editlistModal<%= listjob.list_id + 50 % 9 %>" tabindex="-1" role="dialog" aria-labelledby="editlistModalLabel<%= listjob.list_id + 50 % 9%>"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editlistModalLabel">แก้ไขรายการงาน</h5>
-          <a href="/delete/<%= listjob.list_id %>" role="button" class="btn btn-danger padding-left fa fa-trash"></a>
+          <h5 class="modal-title" id="editlistModalLabel<%= listjob.list_id + 50 % 9%>">แก้ไขรายการงาน</h5>
+          <a href="/delete/<%= listjob.list_id + 50 % 9 %>" role="button" class="btn btn-danger padding-left fa fa-trash"></a>
         </div>
         <div class="modal-body">
 
