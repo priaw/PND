@@ -7,7 +7,7 @@ moment.locale('th');
 
 router.get('/listjobs-date', function (req, res) {
     db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.date DESC', function (err, result, field) {
-        
+
         if (err) {
             throw err;
         } else {
@@ -15,13 +15,13 @@ router.get('/listjobs-date', function (req, res) {
                 print: result,
                 moment: moment,
                 page: 'date',
-                
+
             }
             res.render('listjobs', listjob);
-            
+
         }
     });
-    
+
 });
 
 
@@ -47,12 +47,8 @@ router.post('/update/:list_id', function (req, res) {
     let destination = req.body.destination
     let id = req.params.list_id
     db.query('UPDATE `listjobs` SET price = ?, date = ?, source = ?, destination = ? WHERE list_id = ? ', [price, date, sorce, destination, id], function (err, results) {
-
-
-        //db.query('UPDATE FORM `listjobs` SET date = ?, source = ?, destination = ?, price = ?, job_description = ? WHERE list_id = ? '[data.date], [data.sorce], [id], function (err, results) {
         res.redirect('/listjobs-date');
         console.log('Some data has been update, data price: ' + date + ' id: ' + id);
-        // res.end('<h1>' +  id  + '<br>' + data.date +  '</h1>'vvv)
     });
 });
 
