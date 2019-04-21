@@ -52,23 +52,23 @@ router.post('/update/:list_id', function (req, res) {
     });
 });
 
-// router.post('/insert', function (req, res) {
-//  let price = req.body.price
-//  let date = req.body.date
-//  let customer = req.body.customer 
-//  let dealer = req.body.dealer
-//  let driver = req.body.driver
-//  let truck = req.body.trucks
-//  let sorce = req.body.source
-//  let destination = req.body.destination
-//  let id = req.params.list_id
-//  db.query('UPDATE `listjobs` SET price = ?, date = ?, source = ?, destination = ? WHERE list_id = ? ' ,[price,date,sorce,destination,id], function (err, results){
+router.post('/insert', function (req, res) {
+ let price = req.body.price
+ let date = req.body.date
+ let customer = req.body.customer 
+ let dealer = req.body.dealer
+ let driver = req.body.driver
+ let truck = req.body.trucks
+ let sorce = req.body.source
+ let destination = req.body.destination
+ let id = req.params.list_id
+ db.query('UPDATE `listjobs` SET price = ?, date = ?, source = ?, destination = ? WHERE list_id = ? ' ,[price,date,sorce,destination,id], function (err, results){
 
 
-//  //db.query('UPDATE FORM `listjobs` SET date = ?, source = ?, destination = ?, price = ?, job_description = ? WHERE list_id = ? '[data.date], [data.sorce], [id], function (err, results) {
-//      res.redirect('/listjobs-date');
-//     //console.log('Some data has been update, data price: '+price+ ' id: ' + id);
-//      // res.end('<h1>' +  id  + '<br>' + data.date +  '</h1>'vvv)
-//  });
-// });
+ //db.query('UPDATE FORM `listjobs` SET date = ?, source = ?, destination = ?, price = ?, job_description = ? WHERE list_id = ? '[data.date], [data.sorce], [id], function (err, results) {
+     res.redirect('/listjobs-date');
+    //console.log('Some data has been update, data price: '+price+ ' id: ' + id);
+     // res.end('<h1>' +  id  + '<br>' + data.date +  '</h1>'vvv)
+ });
+});
 module.exports = router;

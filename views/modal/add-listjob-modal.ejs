@@ -2,134 +2,173 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Include Date Range Picker -->
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-dark fas fa-plus" data-toggle="modal" data-target="#addlistModal">&nbsp; เพิ่มรายการงาน</button>
+<button type="button" class="btn btn-dark fas fa-plus" data-toggle="modal" data-target="#addlistModal">&nbsp;
+  เพิ่มรายการงาน</button>
 
 <!-- Modal -->
 <form action="/insert" method="POST">
-<div class="modal fade" id="addlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">เพิ่มรายการงาน</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+  <div class="modal fade" id="addlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">เพิ่มรายการงาน</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body">
 
-        <div class="form-group row">
-          <div class="col-sm-4" for="date" id="datepicker">
-            <span class="align-middle">วันที่/เดือน/ปี</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <input class="form-control " id="dp" name="date" placeholder="yyyy-mm-dd" type="text" />
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">วันที่/เดือน/ปี</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <input class="form-control" id="dp1" name="date" autocomplete="off" placeholder="" type="text" />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="form-group row">
-          <div class="col-sm-4" for="date">
-            <span class="align-middle">ชื่อลูกค้า</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="customer" placeholder="ชื่อลูกค้า..." type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-4" for="date">
-            <span class="align-middle">ชื่อผู้ติดต่อ</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="dealer" placeholder="ชื่อผู้ติดต่อ..." type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-4" for="date">
-            <span class="align-middle">ชื่อคนขับรถ</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="driver" placeholder="ชื่อคนขับรถ..." type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-4" for="date">
-            <span class="align-middle">ชนิดรถ</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="trucks" placeholder="ชนิดรถ..." type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-4" for="date">
-            <span class="align-middle">ต้นทาง</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="source" placeholder="สถานที่ต้นทาง..." type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-4" for="date">
-            <span class="align-middle">ปลายทาง</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <input class="form-control " id="customer" name="destination" placeholder="สถานที่ปลายทาง..." type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-4" for="date">
-            <span class="align-middle">รายละเอียดอื่นๆ</span>
-          </div>
-          <div class="col-sm-7">
-            <div class="input-group align-middle">
-              <textarea class="form-control " id="customer" name="job_des" placeholder="รายละเอียดงานเพิ่มเติม..."
-                type="text"></textarea>
-            </div>
-          </div>
-        </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">ชื่อลูกค้า</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <select class="custom-select" id="customer">
+                    <option selected>เลือกชื่อลูกค้า...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
 
-      </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">ชื่อผู้ติดต่อ</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <select class="custom-select" id="dealer">
+                    <% print.forEach(function (listjob) { %>
+                    <option selected>
+                      <%= listjob.customer_name %>
+                    </option>
+                    <% }) %>
+                  </select>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-        <button type="submit" class="btn btn-primary" name="submit">บันทึกรายการงาน</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">ชื่อคนขับรถ</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <select class="custom-select" id="driver">
+                    <option selected>เลือกชื่อผู้ขับรถ...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">ชนิดรถ</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <select class="custom-select" id="truck">
+                    <option selected>หกล้อบรรทุก</option>
+                    <option value="1">หกล้อติดเครน</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">ต้นทาง</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <input class="form-control " id="source" name="source" value="<%= listjob.source %>" autocomplete="off"
+                    type="text" />
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">ปลายทาง</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <input class="form-control " id="destination" name="destination" value="<%= listjob.destination %>"
+                    autocomplete="off" type="text" />
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">ราคางาน</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <input class="form-control " id="price" name="price" value="<%= listjob.price %>" autocomplete="off"
+                    type="text"></input>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4" for="date">
+                <span class="align-middle">รายละเอียดอื่นๆ</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group align-middle">
+                  <textarea class="form-control " id="customer" name="job_description" autocomplete="off" type="text"
+                    value=""></textarea>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+            <button type="submit" class="btn btn-primary" name="submit">บันทึกรายการงาน</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 </form>
+
+
 <script>
-  $('#dp').datepicker({
-  format: 'yyyy-mm-dd'
-});
-  // $(document).ready(function () {
-  //   var date_input = $('input[name="date"]'); //our date input has the name "date"
-  //   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-  //   date_input.datepicker({
-  //     format: 'mm/dd/yyyy',
-  //     container: container,
-  //     todayHighlight: true,
-  //     autoclose: true,
-  //   })
-  // })
+  $('#dp1').datepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+    todayHighlight: true
+  }).datepicker('setDate', 'today');
+
+  $("#clearForm").on("click", function () {
+    $(this).val("")
+  });
+
+  $("#editButton").click(function () {
+    var clicked_id = $("this").val();
+    console.log(clicked_id);
+  });
+
+
 </script>

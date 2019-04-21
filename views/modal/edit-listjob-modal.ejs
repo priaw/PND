@@ -2,10 +2,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Include Date Range Picker -->
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
 
 <!-- Modal -->
@@ -26,8 +24,8 @@
             </div>
             <div class="col-sm-7">
               <div class="input-group align-middle">
-                <input class="form-control" id="dp1" name="date" autocomplete="off"
-                  value="<%= moment(listjob.date).format('YYYY-MM-DD') %>" type="text" />
+                <input class="form-control" id="dp1" name="date" autocomplete="off" value="<%= moment(listjob.date).format('YYYY-MM-DD') %>"
+                  type="text" />
               </div>
             </div>
           </div>
@@ -56,7 +54,9 @@
               <div class="input-group align-middle">
                 <select class="custom-select" id="dealer">
                   <% print.forEach(function (listjob) { %>
-                  <option selected><%= listjob.customer_name %></option>
+                  <option selected>
+                    <%= listjob.customer_name %>
+                  </option>
                   <% }) %>
                 </select>
 
@@ -97,8 +97,8 @@
             </div>
             <div class="col-sm-7">
               <div class="input-group align-middle">
-                <input class="form-control " id="source" name="source" value="<%= listjob.source %>"
-                  autocomplete="off" type="text" />
+                <input class="form-control " id="source" name="source" value="<%= listjob.source %>" autocomplete="off"
+                  type="text" />
               </div>
             </div>
           </div>
@@ -119,8 +119,8 @@
             </div>
             <div class="col-sm-7">
               <div class="input-group align-middle">
-                <input class="form-control " id="price" name="price" value="<%= listjob.price %>"
-                  autocomplete="off" type="text"></input>
+                <input class="form-control " id="price" name="price" value="<%= listjob.price %>" autocomplete="off"
+                  type="text"></input>
               </div>
             </div>
           </div>
@@ -130,8 +130,8 @@
             </div>
             <div class="col-sm-7">
               <div class="input-group align-middle">
-                <textarea class="form-control " id="customer" name="job_description" autocomplete="off"
-                  value="<%= listjob.job_description %> <%= listjob.list_id%>" type="text"></textarea>
+                <textarea class="form-control " id="customer" name="job_description" autocomplete="off" value="<%= listjob.job_description %> <%= listjob.list_id%>"
+                  type="text"></textarea>
               </div>
             </div>
           </div>
@@ -164,5 +164,5 @@
     console.log(clicked_id);
   });
 
- 
+
 </script>
