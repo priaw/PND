@@ -51,7 +51,7 @@
         <% print.forEach(function (listjob) { %>
         <tr value=<%=listjob.status %> >
             <th scope="row">
-
+                
             </th>
             <td>
                 <%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>
@@ -120,5 +120,7 @@
     $("#listjobRow th").add(function (value, row, index){
         return index+1;
     });
+
+    var count = $('#listjobRow tr').length;
 
 </script>
