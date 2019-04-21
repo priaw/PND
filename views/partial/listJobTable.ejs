@@ -51,7 +51,7 @@
         <% print.forEach(function (listjob) { %>
         <tr value=<%=listjob.status %> >
             <th scope="row">
-                
+                <%=listjob.list_id %>
             </th>
             <td>
                 <%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>
