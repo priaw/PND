@@ -4,7 +4,7 @@ const moment = require('moment');
 const db = require('../models/database');
 moment.locale('th');
 
-router.get('/listjobs-date', function (req, res) {
+router.get('/listjobs-date/cust', function (req, res) {
     db.execute('SELECT * FROM `customer` ORDER BY customer.cust_id', function (err, result, field) {
         if (err) {
             throw err;
@@ -14,6 +14,7 @@ router.get('/listjobs-date', function (req, res) {
             }
             console.log(customerList.print);
         }
+        res.redirect('/listjobs-date');
     });
 });
 module.exports = router;
