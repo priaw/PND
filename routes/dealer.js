@@ -2,19 +2,21 @@ const express = require('express');
 const router = express.Router();
 const moment = require('moment');
 const db = require('../models/database');
+//let body = require('body-parser'); 
 moment.locale('th');
 
-router.get('/customerlist', function (req, res) {
-    db.execute('SELECT * FROM `customer` ORDER BY customer.cust_id', function (err, result, field) {
+router.get('/dealerlist', function (req, res) {
+    db.execute('SELECT * FROM `dealer` ORDER BY dealer_id', function (err, result, field) {
 
         if (err) {
             throw err;
         } else {
-            customerList = {
+            dealerList = {
                 print: result
             }
-            console.log(customerList.print);
+            console.log(dealerList.print);
         }
     });
 });
+
 module.exports = router;

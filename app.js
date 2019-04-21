@@ -4,7 +4,7 @@ const body = require('body-parser');                        //user method post
 
 
 const documentsRouter = require('./routes/documents');
-const accountingRouter = require('./routes/accounting');
+const dealerRouter = require('./routes/dealer');
 const indexRouter = require('./routes/index');
 const listjobsrouter = require('./routes/listjobs');
 const customerrouter = require('./routes/customer');
@@ -21,7 +21,7 @@ app.use(listjobsrouter);
 app.use(customerrouter);
 app.use(PDFRouter);
 // app.use(documentsRouter);
-// app.use(accountingRouter);
+app.use(dealerRouter);
 
 
 app.set('view engine','ejs');
