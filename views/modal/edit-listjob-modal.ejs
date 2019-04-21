@@ -37,15 +37,17 @@
             <div class="col-sm-7">
               <div class="input-group align-middle">
                 <select class="custom-select" id="customer">
-                  <option selected>เลือกชื่อลูกค้า...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option selected value="-1">เลือกชื่อลูกค้า...</option>
+                  <% print.forEach(function (customerList) { %>
+                  <option value="0">
+                      TEST CUSTOMER
+                  </option>
+                  <% }) %>
                 </select>
-
               </div>
             </div>
           </div>
+
           <div class="form-group row">
             <div class="col-sm-4" for="date">
               <span class="align-middle">ชื่อผู้ติดต่อ</span>
@@ -55,7 +57,7 @@
                 <select class="custom-select" id="dealer">
                   <% print.forEach(function (listjob) { %>
                   <option selected>
-                    <%= listjob.customer_name %>
+                    <%= listjob.customer_name %> XXX
                   </option>
                   <% }) %>
                 </select>

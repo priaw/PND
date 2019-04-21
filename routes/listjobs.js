@@ -5,9 +5,11 @@ const db = require('../models/database');
 //let body = require('body-parser'); 
 moment.locale('th');
 
-router.get('/listjobs-date', function (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.date DESC', function (err, result, field) {
+const customerrouter = require('./customer');
 
+
+router.get('/listjobs-date', function (req, res) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.list_id', function (err, result, field) {
         if (err) {
             throw err;
         } else {
@@ -15,9 +17,10 @@ router.get('/listjobs-date', function (req, res) {
                 print: result,
                 moment: moment,
                 page: 'date',
-
+                customerlist: router.use(customerrouter)
             }
-            res.render('listjobs', listjob);
+            
+            res.render('listjobs',listjob);
 
         }
     });
