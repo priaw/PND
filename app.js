@@ -9,7 +9,7 @@ const indexRouter = require('./routes/index');
 const listjobsrouter = require('./routes/listjobs');
 const customerrouter = require('./routes/customer');
 const trackingRouter = require('./routes/GPStracking');
-const PDFRouter = require('.routes/PDF')
+const PDFRouter = require('./routes/pdf')
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
