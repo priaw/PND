@@ -15,3 +15,5 @@ router.get('/PDF', function (req, res) {
     iframe.src = stream.toBlobURL('application/pdf');
 }); 
 });
+
+module.exports = router;
