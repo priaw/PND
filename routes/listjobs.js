@@ -8,17 +8,36 @@ moment.locale('th');
 const customerrouter = require('./customer');
 
 function fetchAll (req, res) {
-    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.list_id', function (err, result, field) {
+    db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.list_id', function (err, LJresult, field) {
         if (err) {
             throw err;
         } else {
-            listjob = {
-                print: result,
-                moment: moment,
-                page: 'date',
-            }
-            res.render('listjobs', listjob);
-
+            db.execute('SELECT * FROM `customer` ORDER BY customer.cust_id', function (err, CUSTresult) {
+                if (err) {
+                    throw err;
+                } else {
+                    db.execute('SELECT * FROM `driver` ORDER BY driver.driver_id', function (err, DRIVresult) {
+                        if (err) {
+                            throw err;
+                        } else {
+                            db.execute('SELECT * FROM `dealer` ORDER BY dealer.dealer_id', function (err, DEALresult) {
+                                if (err) {
+                                    throw err;
+                                } else {
+                                    res.render('listjobs', 
+                                    {   listjobs: LJresult,
+                                        customerlists: CUSTresult, 
+                                        dealerlists: DEALresult, 
+                                        driverlists: DRIVresult, 
+                                        moment: moment,
+                                        page: 'date',
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
         }
     });
 }

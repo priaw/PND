@@ -4,6 +4,7 @@
 // const db = require('../models/database');
 // moment.locale('th');
 
+<<<<<<< HEAD
 // function RegisCustomer (req, res) {
 //     let name_cus = req.body.customer;
 //     let code = req.body.codename;
@@ -19,3 +20,19 @@
 
 // router.get('/regiscustomer', RegisCustomer);
 // module.exports = router;
+=======
+router.get('/listjobs-date/cust', function (req, res) {
+    db.execute('SELECT * FROM `customer` ORDER BY customer.cust_id', function (err, result, field) {
+        if (err) {
+            throw err;
+        } else {
+            customerList = {
+                prints: result
+            }
+            console.log(customerList.print);
+        }
+        res.render('./modal/partial/customer_select', customerList);
+    });
+});
+module.exports = router;
+>>>>>>> FETCH IS COOL!!!
