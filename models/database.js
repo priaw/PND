@@ -7,7 +7,6 @@ const connection = mysql.createConnection({
     password: '',
     database: 'pnd-web-serv'
 });
-
 module.exports = connection;
 
 
