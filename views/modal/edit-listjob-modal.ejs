@@ -24,8 +24,8 @@
             </div>
             <div class="col-sm-7">
               <div class="input-group align-middle">
-                <input class="form-control" id="dp1" name="date" autocomplete="off" value="<%= moment(listjob.date).format('YYYY-MM-DD') %>"
-                  type="text" />
+                <input class="form-control" id="dp2" name="date" autocomplete="off" 
+                   value="<%= moment(listjob.date).format('YYYY-MM-DD') %>" type="text"/>
               </div>
             </div>
           </div>
@@ -151,20 +151,21 @@
 
 <script>
 
-  $('#dp1').datepicker({
+  $('#dp2').datepicker({
     format: 'yyyy-mm-dd',
     autoclose: true,
     todayHighlight: true
   });
 
-  $("#clearForm").on("click", function () {
-    $(this).val("")
-  });
 
-  $("#editButton").click(function () {
-    var clicked_id = $("this").val();
-    console.log(clicked_id);
-  });
+  // $("#clearForm").on("click", function () {
+  //   $(this).val("")
+  // });
+
+  // $("#editButton").click(function () {
+  //   var clicked_id = $("this").val();
+  //   console.log(clicked_id);
+  // });
 
 
 </script>
