@@ -13,6 +13,7 @@ const regisCustomer = require('./routes/regiscustomer');
 const trackingRouter = require('./routes/GPStracking');
 const PDFRouter = require('./routes/pdf');
 const driverRouter = require('./routes/driver');
+const regisdriver = require('./routes/regisdriver');
 
 
 app.use(express.static(__dirname + '/public'));
@@ -26,6 +27,7 @@ app.use(listjobsrouter);
 app.use(regisCustomer);
 app.use(PDFRouter);
 app.use(driverRouter);
+app.use(regisdriver);
 // app.use(documentsRouter);
 app.use(dealerRouter);
 app.use(regisDealer);
