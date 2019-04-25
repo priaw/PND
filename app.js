@@ -7,9 +7,10 @@ const documentsRouter = require('./routes/documents');
 const dealerRouter = require('./routes/dealer');
 const indexRouter = require('./routes/index');
 const listjobsrouter = require('./routes/listjobs');
-const customerrouter = require('./routes/customer');
+const customerrouter = require('./routes/regiscustomer');
 const trackingRouter = require('./routes/GPStracking');
-const PDFRouter = require('./routes/pdf')
+const PDFRouter = require('./routes/pdf');
+const driverRouter = require('./routes/driver');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
@@ -20,6 +21,7 @@ app.use(trackingRouter);
 app.use(listjobsrouter);
 app.use(customerrouter);
 app.use(PDFRouter);
+app.use(driverRouter);
 // app.use(documentsRouter);
 app.use(dealerRouter);
 

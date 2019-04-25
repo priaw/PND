@@ -70,15 +70,26 @@ function insertJob (req, res) {
     let truck = req.body.trucks
     let sorce = req.body.source
     let destination = req.body.destination
-    let desc = req.body.description
+    let desc = req.body.job_description
     let id = req.params.list_id
 
-    db.query('UPDATE `listjobs` SET price = ?, date = ?, source = ?, destination = ? WHERE list_id = ? ', [price, date, sorce, destination, id], function (err, results) {
-        //db.query('UPDATE FORM `listjobs` SET date = ?, source = ?, destination = ?, price = ?, job_description = ? WHERE list_id = ? '[data.date], [data.sorce], [id], function (err, results) {
+    // db.query('UPDATE `listjobs` SET price = ?, date = ?, source = ?, destination = ? WHERE list_id = ? ', [price, date, sorce, destination, id], function (err, results) {
+    //     //db.query('UPDATE FORM `listjobs` SET date = ?, source = ?, destination = ?, price = ?, job_description = ? WHERE list_id = ? '[data.date], [data.sorce], [id], function (err, results) {
+    //     res.redirect('/listjobs-date');
+    //     //console.log('Some data has been update, data price: '+price+ ' id: ' + id);
+    //     // res.end('<h1>' +  id  + '<br>' + data.date +  '</h1>'vvv)
+    // });
+
+    var sql = "INSERT INTO listjobs (list_id, customer, date, dealer, driver, trucks, source, destination, price, job_description, advance_fuel, status) VALUES ?";
+    var values = [
+        [null, customer, date, dealer, driver, truck, sorce, destination, price, desc, 0, 1] // ยังไม่ได้ใส่ adv_fuel กับ status
+    ];
+    db.query(sql, [values], function (err, result){
+        if (err) throw err;
+        console.log("success");
         res.redirect('/listjobs-date');
-        //console.log('Some data has been update, data price: '+price+ ' id: ' + id);
-        // res.end('<h1>' +  id  + '<br>' + data.date +  '</h1>'vvv)
     });
+    
 }
 
 
