@@ -4,7 +4,6 @@
 // const db = require('../models/database');
 // moment.locale('th');
 
-//<<<<<<< HEAD
 // function RegisCustomer (req, res) {
 //     let name_cus = req.body.customer;
 //     let code = req.body.codename;
@@ -20,6 +19,3 @@
 
 // router.get('/regiscustomer', RegisCustomer);
 // module.exports = router;
-//=======
-
-//>>>>>>> FETCH IS COOL!!!
