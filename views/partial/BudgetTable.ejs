@@ -79,7 +79,7 @@
 
 
     function myFunction() {
-        var str1 = "Hello ";
+        var str = "Hello ";
         var pageVal = document.getElementById("order-select").getElementsByTagName("option selected").getAttribute("id");
         var res = "SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.id JOIN dealer ON listjobs.dealer = dealer.id JOIN driver ON listjobs.driver = driver.id ORDER BY " + pageVal + ".id";
         document.getElementById("demo").innerHTML = res;
