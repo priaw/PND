@@ -3,18 +3,7 @@
         <!-- real class is "collapse" -->
         <div class="bg-dark p-4">
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">เรียงตาม...</label>
-                </div>
-                <select class="custom-select col-1" id="order-select">
-                    <option id="all" value="listjobs-all">งานทั้งหมด</option>
-                    <option id="date" value="listjobs-date">วันที่</option>
-                    <option id="customer" value="listjobs-customer">ชื่อลูกค้า</option>
-                    <option id="truck" value="listjobs-truck">ชนิดรถ</option>
-                    <option id="driver" value="listjobs-driver">ชื่อผู้ขับรถ</option>
-                </select>
-            </div>
+            
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
@@ -33,36 +22,34 @@
 <table id="dtOrder" class="table table-sm">
     <thead>
         <tr>
-            <th scope="col">ลำดับ <a class="fa fa-fw fa-sort"></a></th>
-            <th scope="col">วันที่ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">หมายเลขบิล <a class="fa fa-fw fa-sort"></a></th>
+            <th scope="col">ค่าน้ำมัน <i class="fa fa-fw fa-sort"></i></th>
             <th scope="col">รับ/จ่าย <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">รายการบัญชี <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">จำนวนเงิน <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">ค่าตำรวจ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">ค่าซ่อมบำรุง <i class="fa fa-fw fa-sort"></i></th>
             <th scope="col">ยอดคงเหลือ <i class="fa fa-fw fa-sort"></i></th>
         </tr>
 
     </thead>
-    <tbody id="listjobRow">
-        <% print.forEach(function (listjob) { %>
-        <tr value=<%=listjob.status %> >
+    <tbody id="">
+        <% print.forEach(function (budget) { %>
+        <tr value=<%=budget.status %> >
             <th scope="row">
-                <%= listjob.list_id %>
+                <%= budget.budg_id %>
             </th>
             <td>
-                <%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>
+                <%= budget.fuel %>
             </td>
             <td>
-                <%= listjob.customer_name %>
+                <%= budget.toll %>
             </td>
             <td>
-                <%= listjob.dealer_name %>
+                <%= budget.police %>
             </td>
             <td>
-                <%= listjob.driver_name %>
+                <%= budget.repair %>
             </td>
-            <td>
-                <%= listjob.trucks %>
-            </td>
+            
         </tr>
         <% }) %>
     </tbody>

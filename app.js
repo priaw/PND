@@ -14,7 +14,7 @@ const trackingRouter = require('./routes/GPStracking');
 const PDFRouter = require('./routes/pdf');
 const driverRouter = require('./routes/driver');
 const regisdriver = require('./routes/regisdriver');
-
+const customerlist = require('./routes/budget');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
@@ -23,6 +23,7 @@ app.use(body());
 app.use(indexRouter);
 app.use(trackingRouter);
 app.use(listjobsrouter);
+app.use(customerlist);
 //app.use(customerrouter);
 app.use(regisCustomer);
 app.use(PDFRouter);

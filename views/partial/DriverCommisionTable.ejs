@@ -34,55 +34,36 @@
     <thead>
         <tr>
             <th scope="col">ลำดับ <a class="fa fa-fw fa-sort"></a></th>
-            <th scope="col">วันที่ <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">ชื่อลูกค้า <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">ชื่อผู้ติดต่อ <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">ชื่อผู้ขับรถ <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">ชนิดรถ <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">ต้นทาง</th>
-            <th scope="col">ปลายทาง</th>
-            <th scope="col">ราคา <i class="fa fa-fw fa-sort"></i></th>
-            <th scope="col">รายละเอียดอื่นๆ </th>
-            <th scope="col">แก้ไข </th>
-        </tr>
+            <th scope="col">ชื่อผู้ขับ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">นามสกุลผู้ขับ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">ที่อยู่ผู้ขับ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">เบอร์ติดต่อผู้ขับ <i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">หมายเลขประจำตัวผู้ขับ <i class="fa fa-fw fa-sort"></i></th>
+            </tr>
 
     </thead>
     <tbody id="listjobRow">
-        <% print.forEach(function (listjob) { %>
-        <tr value=<%=listjob.status %> >
+        <% print.forEach(function (driver) { %>
+        <tr value=<%=driver.status %> >
             <th scope="row">
-                <%= listjob.list_id %>
+                <%= driver.driver_id %>
             </th>
             <td>
-                <%= moment(listjob.date).add(543, 'year').format('Do MMM YY') %>
+                <%= driver.driver_name %>
             </td>
             <td>
-                <%= listjob.customer_name %>
+                <%= driver.driver_surname %>
             </td>
             <td>
-                <%= listjob.dealer_name %>
+                <%= driver.driver_address %>
             </td>
             <td>
-                <%= listjob.driver_name %>
+                <%= driver.driver_contact %>
             </td>
             <td>
-                <%= listjob.trucks %>
+                <%= driver.driver_identity %>
             </td>
-            <td>
-                <%= listjob.source %>
-            </td>
-            <td>
-                <%= listjob.destination %>
-            </td>
-            <td>
-                <%= listjob.price %>
-            </td>
-            <td>
-                <%= listjob.job_description %>
-            </td>
-            <td>
-                <% include ../modal/edit-listjob-modal.ejs %>
-            </td>
+            
         </tr>
         <% }) %>
     </tbody>

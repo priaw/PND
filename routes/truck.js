@@ -4,20 +4,20 @@ const moment = require('moment');
 const db = require('../models/database');
 
 
-function Driver (req, res) {
-    db.execute('SELECT * FROM `driver` ', function (err, result, field) {
+function Trucks (req, res) {
+    db.execute('SELECT * FROM `trucks` ', function (err, result, field) {
         if (err) {
             throw err;
         } else {
-            driver = {
+            truck = {
                 print: result,
                 page: 'date',
             }
-            res.render('driver', driver);
+            res.render('truck', truck);
 
         }
     });
 }
 
-router.get('/driver', Driver);
+router.get('/trucks', Trucks);
 module.exports = router;

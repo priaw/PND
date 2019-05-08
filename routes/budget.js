@@ -3,21 +3,20 @@ const router = express.Router();
 const moment = require('moment');
 const db = require('../models/database');
 
-
-function Driver (req, res) {
-    db.execute('SELECT * FROM `driver` ', function (err, result, field) {
+function customer (req, res) {
+    db.execute('SELECT * FROM `budgets`', function (err, result, field) {
         if (err) {
             throw err;
         } else {
-            driver = {
+            budget = {
                 print: result,
                 page: 'date',
             }
-            res.render('driver', driver);
+            res.render('budget', budget);
 
         }
     });
 }
+router.get('/budget', customer);
 
-router.get('/driver', Driver);
 module.exports = router;

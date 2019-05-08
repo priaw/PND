@@ -7,7 +7,6 @@ moment.locale('th');
 
 const customerrouter = require('./customer');
 
-
 function fetchAll (req, res) {
     db.execute('SELECT * FROM `listjobs` JOIN customer ON listjobs.customer = customer.cust_id JOIN dealer ON listjobs.dealer = dealer.dealer_id JOIN driver ON listjobs.driver = driver.driver_id ORDER BY listjobs.list_id', function (err, result, field) {
         if (err) {
@@ -24,18 +23,6 @@ function fetchAll (req, res) {
     });
 }
 
-function fetchCustomer (req, res){
-    db.execute('SELECT * FROM `customer` ORDER BY customer.cust_id', function (err, result) {
-        if (err) {
-            throw err;
-        } else {
-            customerList = {
-                customerPrint: result,
-            }
-            // console.log(customerList.customerPrint);
-        }
-    });
-}
 
 function deleteByID (req, res) {
     var id = req.params.list_id;
