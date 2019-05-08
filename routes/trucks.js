@@ -11,7 +11,8 @@ function Trucks (req, res) {
         } else {
             truck = {
                 print: result,
-              
+                moment: moment,
+                page: 'date',
             }
             res.render('truck', truck);
 
@@ -19,5 +20,5 @@ function Trucks (req, res) {
     });
 }
 
-router.get('/trucks', Trucks);
+router.get('/truck', Trucks);
 module.exports = router;

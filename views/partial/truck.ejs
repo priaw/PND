@@ -44,7 +44,7 @@
 
     </thead>
     <tbody id="listjobRow">
-        <% print.forEach(function (driver) { %>
+        <% print.forEach(function (truck) { %>
         <tr value=<%=truck.status %> >
             <th scope="row">
                 <%= truck.truck_id %>
@@ -56,10 +56,13 @@
                 <%= truck.brand %>
             </td>
             <td>
+                <%= truck.model %>
+            </td>
+            <td>
                 <%= truck.plat_no %>
             </td>
             <td>
-                <%= truck.tax_expire %>
+                <%= moment(truck.date).add(543, 'year').format('Do MMM YY') %>
             </td>
             <td>
                 <%= truck.mileage %>
