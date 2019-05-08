@@ -11,7 +11,7 @@ function Trucks (req, res) {
         } else {
             truck = {
                 print: result,
-                page: 'date',
+              
             }
             res.render('truck', truck);
 

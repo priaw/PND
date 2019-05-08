@@ -15,11 +15,12 @@ const PDFRouter = require('./routes/pdf');
 const driverRouter = require('./routes/driver');
 const regisdriver = require('./routes/regisdriver');
 const customerlist = require('./routes/budget');
+const trucks = require('./routes/trucks');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
-
+app.use(trucks);
 app.use(indexRouter);
 app.use(trackingRouter);
 app.use(listjobsrouter);
