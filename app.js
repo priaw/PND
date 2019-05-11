@@ -16,10 +16,12 @@ const driverRouter = require('./routes/driver');
 const regisdriver = require('./routes/regisdriver');
 const customerlist = require('./routes/budget');
 const trucks = require('./routes/trucks');
+const addtrucks = require('./routes/addtrucks');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
+app.use(addtrucks);
 app.use(trucks);
 app.use(indexRouter);
 app.use(trackingRouter);
