@@ -17,10 +17,14 @@ const regisdriver = require('./routes/regisdriver');
 const customerlist = require('./routes/budget');
 const trucks = require('./routes/trucks');
 const addtrucks = require('./routes/addtrucks');
+const incomedriver = require('./routes/incomedriver');
+const usetruck = require('./routes/usetruck');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
+app.use(incomedriver);
+app.use(usetruck);
 app.use(addtrucks);
 app.use(trucks);
 app.use(indexRouter);
