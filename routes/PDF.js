@@ -1,21 +1,20 @@
-const express = require('express');
-const router = express.Router();
-// const moment = require('moment');
-// const db = require('../models/database');
-const PDFDocument = require('pdfkit');
-//const blobStream  = require('blob-stream');
-var doc = new PDFDocument();
-//var stream = doc.pipe(blobStream());
 
-router.get('/pdf', function (req, res) {
-    // create a document and pipe to a blob
-    doc.fontSize(25).text('Test', 100, 80);
+var PSPDFKit = require("pspdfkit");
 
-    // end and display the document in the iframe to the right
-    doc.end();
-    stream.on('finish', function() {
-    iframe.src = stream.toBlobURL('application/pdf');
-}); 
-});
+function PDF (req,res){
+    PSPDFKit.load({
+  container: "#pspdfkit",
+  pdf: "<pdf-file-path>",
+  licenseKey: "YOUR_LICENSE_KEY_GOES_HERE"
+})
+  .then(function(instance) {
+    console.log("PSPDFKit for Web loaded", instance);
+  })
+  .catch(function(error) {
+    console.error(error.message);
+  });
+}
 
+
+  router.get('/pdf', PDF);
 module.exports = router;
