@@ -1,20 +1,18 @@
+var ejs = require('./utils/ejs');
+var pdf = require('./utils/pdf');
+var moment = require('moment');
+var data = require('./data/data.json');
 
-var PSPDFKit = require("pspdfkit");
+ejs.toHTML('./templates/index.ejs', data).then(function (html) {
+    var options = { format: 'Letter' };
+    var output = './data/out/pdf_' + moment().format('YYYYMMDDHHmmSS') + '.pdf'
 
-function PDF (req,res){
-    PSPDFKit.load({
-  container: "#pspdfkit",
-  pdf: "<pdf-file-path>",
-  licenseKey: "YOUR_LICENSE_KEY_GOES_HERE"
-})
-  .then(function(instance) {
-    console.log("PSPDFKit for Web loaded", instance);
-  })
-  .catch(function(error) {
-    console.error(error.message);
-  });
-}
-
-
-  router.get('/pdf', PDF);
-module.exports = router;
+    pdf.toPDF(html, options, output).then(function (response) {
+        console.log("PDF file successfully written");
+        console.log(response);
+    }, function (error) {
+        console.error(error);
+    });
+}, function (error) {
+   console.error(error);
+});
