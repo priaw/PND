@@ -11,33 +11,45 @@ const listjobsrouter = require('./routes/listjobs');
 //const customerrouter = require('./routes/customer');
 const regisCustomer = require('./routes/regiscustomer');
 const trackingRouter = require('./routes/GPStracking');
-const PDFRouter = require('./routes/pdf');
 const driverRouter = require('./routes/driver');
 const regisdriver = require('./routes/regisdriver');
 const customerlist = require('./routes/budget');
 const trucks = require('./routes/trucks');
 const addtrucks = require('./routes/addtrucks');
 const incomedriver = require('./routes/incomedriver');
-const usetruck = require('./routes/usetruck');
-const PDF = require('.routes/pdf');
+const customerUseTruck = require('./routes/usetruck');
+
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
+app.use(indexRouter);
+
+//listjob
+app.use(listjobsrouter);        
+
+//customers
+app.use(customerlist);          
+app.use(customerUseTruck);
+
+//drivers
+app.use(regisdriver);           
+app.use(driverRouter);
 app.use(incomedriver);
-app.use(PDF);
-app.use(usetruck);
+
+//trucks
 app.use(addtrucks);
 app.use(trucks);
-app.use(indexRouter);
+
+//GPS Tracking
 app.use(trackingRouter);
-app.use(listjobsrouter);
-app.use(customerlist);
+
+
 //app.use(customerrouter);
 app.use(regisCustomer);
-app.use(PDFRouter);
-app.use(driverRouter);
-app.use(regisdriver);
+
+
+
 // app.use(documentsRouter);
 app.use(dealerRouter);
 app.use(regisDealer);
