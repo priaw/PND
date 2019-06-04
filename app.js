@@ -19,11 +19,13 @@ const trucks = require('./routes/trucks');
 const addtrucks = require('./routes/addtrucks');
 const incomedriver = require('./routes/incomedriver');
 const usetruck = require('./routes/usetruck');
+const PDF = require('.routes/pdf');
 
 app.use(express.static(__dirname + '/public'));
 app.use(body());
 
 app.use(incomedriver);
+app.use(PDF);
 app.use(usetruck);
 app.use(addtrucks);
 app.use(trucks);
