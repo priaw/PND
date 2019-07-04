@@ -8,7 +8,7 @@ const dealerRouter = require('./routes/dealer');
 const regisDealer = require('./routes/regisdealer');
 const indexRouter = require('./routes/index');
 const listjobsrouter = require('./routes/listjobs');
-//const customerrouter = require('./routes/customer');
+const customerrouter = require('./routes/customer'); 
 const regisCustomer = require('./routes/regiscustomer');
 const trackingRouter = require('./routes/GPStracking');
 const driverRouter = require('./routes/driver');
@@ -16,8 +16,7 @@ const regisdriver = require('./routes/regisdriver');
 const customerlist = require('./routes/budget');
 const trucks = require('./routes/trucks');
 const addtrucks = require('./routes/addtrucks');
-const incomedriver = require('./routes/incomedriver');
-const customerUseTruck = require('./routes/usetruck');
+const drivercommision = require('./routes/driverCommission');
 
 
 app.use(express.static(__dirname + '/public'));
@@ -30,12 +29,12 @@ app.use(listjobsrouter);
 
 //customers
 app.use(customerlist);          
-app.use(customerUseTruck);
+app.use(customerrouter);
 
 //drivers
 app.use(regisdriver);           
 app.use(driverRouter);
-app.use(incomedriver);
+app.use(drivercommision);
 
 //trucks
 app.use(addtrucks);

@@ -4,21 +4,21 @@ const moment = require('moment');
 const db = require('../models/database');
 
 
-function incomedriver (req, res) {
+function drivercommision (req, res) {
     db.execute('SELECT * FROM `listjobs` ', function (err, result, field) {
         if (err) {
             throw err;
         } else {
-            incomedriver = {
+            drivercommision = {
                 print: result,
                 moment: moment,
                 page: 'date',
             }
-            res.render('incomedriver', incomedriver);
+            res.render('drivercommision', drivercommision);
 
         }
     });
 }
 
-router.get('/incomedriver', incomedriver);
+router.get('/drivercommission', drivercommision);
 module.exports = router;

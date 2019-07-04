@@ -1,0 +1,21 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#SerchInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#listjobRow tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <% include partial/header-listjob.ejs %>
+
+</head>
+
+<body>
+    <% include partial/customerUseListTable.ejs %>
+</body>
+
+</html>
