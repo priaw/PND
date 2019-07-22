@@ -19,11 +19,16 @@
             </div>
         </nav>
     </div>
+    <div>
+        <table class="table table-md">
+            <tr>
+                <th scope="col">ผู้ขับรถ :</th>
+                <th scope="col"> %%ชื่อผู้ขับรถ ดึงจาก Database%%</th>
+                <th scope="col">ปุ่มปรับเดือน</th>
+            </tr>
+        </table>
+    </div>
     <table id="dtOrder" class="table table-sm">
-        <div>
-
-        </div>
-        <th scope="col">ผู้ขับรถ<a class="fa fa-fw fa-sort"></a></th>
         <thead>
             <tr>
                 <th scope="col">วันที่<i class="fa fa-fw fa-sort"></i></th>
@@ -34,28 +39,7 @@
             </tr>
     
         </thead>
-        <tbody id="">
-            <% print.forEach(function (budget) { %>
-            <tr value=<%=budget.status %> >
-                <th scope="row">
-                    <%= budget.budg_id %>
-                </th>
-                <td>
-                    <%= budget.fuel %>
-                </td>
-                <td>
-                    <%= budget.toll %>
-                </td>
-                <td>
-                    <%= budget.police %>
-                </td>
-                <td>
-                    <%= budget.repair %>
-                </td>
-                
-            </tr>
-            <% }) %>
-        </tbody>
+      
     </table>
     
     <script>
