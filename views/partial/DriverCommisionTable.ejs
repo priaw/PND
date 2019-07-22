@@ -22,9 +22,34 @@
     <div>
         <table class="table table-md">
             <tr>
-                <th scope="col">ผู้ขับรถ :</th>
-                <th scope="col"> %%ชื่อผู้ขับรถ ดึงจาก Database%%</th>
-                <th scope="col">ปุ่มปรับเดือน</th>
+                <th scope="col">       
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">ชื่อพนักงาน :</span>
+                        </div>
+                        <select class="selectpicker">
+                            <option>พนักงาน 1</option>
+                            <option>พนักงาน 2</option>
+                            <option>พนักงาน 3</option>
+                        </select>  
+                        <div class="input-group-prepend">
+                                <span class="input-group-text" id="">เดือน :</span>
+                        </div>
+                        <select class="selectpicker">
+                                <option>มกราคม</option>
+                                <option>กุมภาพันธ์</option>
+                                <option>มีนาคม</option>
+                        </select>  
+                        <div class="input-group-prepend">
+                                <span class="input-group-text" id="">ปี :</span>
+                        </div>
+                        <select class="selectpicker">
+                                <option>2560</option>
+                                <option>2561</option>
+                                <option>2562</option>
+                        </select>  
+                    </div>
+                </th>
             </tr>
         </table>
     </div>
@@ -37,9 +62,20 @@
                 <th scope="col">ต้นทาง - ปลายทาง<i class="fa fa-fw fa-sort"></i></th>
                 <th scope="col">ราคา<i class="fa fa-fw fa-sort"></i></th>
             </tr>
-    
         </thead>
-      
+    </table>
+
+    <table id="dtOrder" class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">รวมยอดงานที่วิ่งได้ : <i class=""></i></th>
+                <th scope="col">XXXX บาท <i class=""></i></th>
+            </tr>
+            <tr>
+                <th scope="col">รายได้ของ %%ดึงชื่อจาก db%% : <i class=""></i></th>
+                <th scope="col">XXXX บาท <i class=""></i></th>
+            </tr>
+        </thead>
     </table>
     
     <script>
