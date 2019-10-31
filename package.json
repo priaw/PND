@@ -18,7 +18,7 @@
     "nodemon": "^1.18.10",
     "pdfkit": "^0.9.1",
     "pspdfkit": "^1.0.2",
-    "sequelize": "^5.2.15",
+    "sequelize": "^5.15.1",
     "template-pdf-generator": "^1.0.2"
   },
   "devDependencies": {},
